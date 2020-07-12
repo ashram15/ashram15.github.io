@@ -1,0 +1,41 @@
+body {
+  margin: 0;
+  margin-top: 40px;
+}
+
+header {
+  display: flex;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 40px;
+  line-height: 40px;
+  background-color:rgb(253, 225, 225);
+}
+
+header * {
+  display: inline;
+  height : 40px;
+}
+
+header ul {
+  padding : 0;
+}
+
+header li {
+  margin-left: 20px;
+}
+
+section {
+  height : 100vh;
+  border: 2px solid black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+#home.profile-img {
+  width: 250px;
+}
