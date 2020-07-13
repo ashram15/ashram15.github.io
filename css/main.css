@@ -1,3 +1,41 @@
+@keyframes typing {
+  0%, 100% {
+    width: 0;
+  }
+  20%, 80% {
+    width: 20em;
+  }
+}
+
+@keyframes line {
+  0%, 100% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+.maintitle {
+  overflow: hidden;
+  white-space: nowrap;
+  animation: typing;
+  display: inline-block;
+  position: relative;
+  animation-duration: 20s;
+  animation-timing-function: steps(35, end);
+  animation-iteration-count: infinite; 
+}
+
+.maintitle::after {
+  content: "|";
+  position: absolute;
+  right: 0;
+  animation: line infinite;
+  animation-duration: 1s;
+  animation-timing-function: steps(1,end);
+}
+
 body {
   margin: 0;
   margin-top: 40px;
