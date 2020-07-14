@@ -1,39 +1,31 @@
-@keyframes typing {
-  0%, 100% {
-    width: 0;
+@keyframes reveal {
+  0% {
+    visibility: hidden;
+    margin-top: -15px;
   }
-  20%, 80% {
-    width: 20em;
+  100% {
+    margin-top: 0;
+    visibility: auto;
   }
 }
 
-@keyframes line {
+/*@keyframes line {
   0%, 100% {
     opacity: 0;
   }
   50% {
     opacity: 1;
   }
-}
+}*/
 
 .maintitle {
-  overflow: hidden;
-  white-space: nowrap;
-  animation: typing;
-  display: inline-block;
-  position: relative;
-  animation-duration: 20s;
-  animation-timing-function: steps(35, end);
-  animation-iteration-count: infinite; 
+  visibility: hidden;
+  margin-top: -10px;
 }
 
 .maintitle::after {
-  content: "|";
-  position: absolute;
-  right: 0;
-  animation: line infinite;
-  animation-duration: 1s;
-  animation-timing-function: steps(1,end);
+  animation-name: reveal 1.5s;
+  animation delat: 
 }
 
 body {
