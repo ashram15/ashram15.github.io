@@ -7,10 +7,17 @@
   }
 }*/
 
+
 #testtrackmap {
   height: 500px;
   width: 60;
 }
+
+.WebContainer{
+    width:100%;
+    min-width:1000px;
+    height:auto;
+} 
 
 body {
   margin: 0;
@@ -91,6 +98,8 @@ h1{
   padding: 0;
   position: relative;
   top: -150px;
+  text-decoration: underline;
+  text-decoration-color: #87cfcd;
 }
 
 
@@ -111,7 +120,6 @@ figcaption{
 }
 
 .Intro {
-  top: -30px;
   margin-bottom: 0;
   padding : 0;
 }
@@ -123,6 +131,26 @@ header li a{
 .contact div{
   height: 300px;
 }
+
+label{
+  display: block;
+
+}
+
+input, label{
+  margin: 1rem;
+}
+
+
+
+
+
+
+
+
+
+
+
 
 
 
