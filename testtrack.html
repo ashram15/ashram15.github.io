@@ -2,8 +2,9 @@
 <html>
   <head>
     <title> Test Track </title>
-    <link rel = "stylesheet" type = "text/css" href = "/css/main.css">
-    
+    <link rel = "stylesheet" type = "text/css" href = "style.css">
+    <script src="https://cdn.jsdelivr.net/scrollreveal.js/3.3.1/scrollreveal.min.js">
+    </script>
   </head>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
   <body>
@@ -19,9 +20,9 @@
       </header>
       <main>
         <section id = "Intro">
-          <div class = "Intro">
+          <div class = "Intro" >
             <img src = "TestTrack1.png" width=800 height=800 class = "profile-img">
-            <h1 class = "maintitle"> Welcome to TestTrack, your COVID-19 testing center finder!</h1>
+            <h1 class = "maintitle"> Welcome to TestTrack,  your COVID-19 testing center finder!</h1>
           </div>
         </section>
         <section id = "motivation">
@@ -89,16 +90,56 @@
              
           </div> 
         </section>
-
-        <section id = "Contact">
-          <div class = "contact">
-            <h2> Meet Us: </h2>
-        </section>
-
-      </main>
+        
+        </main>
       <footer>
          <h3>TestTrack 2020</h3>
       </footer>
+      <script>
+        window.sr = ScrollReveal();
+        sr.reveal('.Intro');
+        sr.reveal('.Motivation');
+        sr.reveal('.steps');
+        sr.reveal('.topnav');
+        sr.reveal('.contact');
+      </script>
+
+      <script language = "JavaScript"> 
+          var fmvalid = new Validator("contactform");
+          fmvalid.addValidation("name", "req", "Please enter your name");
+          fmvalid.addValidation("email", "req", "Please enter your email");
+          fmvalid.addValidation("email", "email", "Please provode a valid email address");
+      </script>
       
+      <?php
+        $errors = ";
+        $myemail = 'ashram15@gmail.com';
+
+        if(empty($_POST['name']))||empty($_POST['email'])|| empty($_POST['note']) 
+        {
+          $errors.="\n Error: all fields are required";
+        }
+
+        $name = $_POST['name'];
+        $email_address = $_POST['email'];
+        $note = $_POST['note'];
+
+        if(!preg_match("/^[a-z0-9-] +(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$/i”, $email_address))
+        {
+          $errors.="\n Error: INvalid email address";
+        }
+
+        if(empty($errors)) //if there are no errors or errors is empty 
+        {
+          $to = $myemail;
+          $email_subject = "Contact form submission: $name";
+          $email_body = "You have received a new message.". "Here are the details: \n Name: $name\n". "Email: $email_address\n Message\n $message";
+          $headers = "Form: $myemail\n";
+          $headers.= "Reply-To:$email_address";
+          mail($to, $email_subject, $email_body, $headers);
+        }
+      ?>
   </body>
 </html>
+
+        
