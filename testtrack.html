@@ -68,6 +68,25 @@
           <div class = "topnav" >
             <h2> Type your closest city or zipcode: </h2>
             <input type = "text" placeholder = "Search...">
+            <h3> Google Maps API MAP </h3>
+            <!--Test Track Map goes here -->
+            <div id="testtrackmap"></div>
+
+            <!--Using JavaScript for the API Function call -->
+            
+            <script>
+            function testMap() {
+               //Longitude of the USA
+               var usa = {lat: 37.0902, lng: 95.7129};
+               
+               var testmap = new google.maps.Map(document.getElementById('map'), {zoom: 5, center: usa});
+            }
+            </script>
+            
+            <script async defer
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBwz4f8LJtQ1XmNxgn688QpvPjBoU9bO5U&callback=testMap">
+            </script>
+             
           </div> 
         </section>
 
