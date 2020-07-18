@@ -88,22 +88,7 @@
                document.getElementById("geosubmit").addEventListener("click", function() {
                   geocodeLocation(geocoder, testmap);
                });
-              
-              var infowindow = new google.maps.InfoWindow();
-              //Calling the Places API
-              var covidquery = {
-                 query: "COVID-19 Testing Center"
-                 fields: ["name", "geometry"]
-               };
-               var request = new google.maps.places.PlacesService(testmap);
-               request.findPlaceFromQuery(covidquery, function(results, status) {
-                  if (status === google.maps.places.PlacesServiceStatus.OK) {
-                    for (var i = 0; i < results.length; i++) {
-                      createMarker(results[i]);
-                    }
-                    testmap.setCenter(results[0].geometry.location);
-                 }
-              });
+             
             }
 
             function geocodeLocation(geocoder, resultsMap) {
@@ -126,18 +111,9 @@
                   }
                }
              );
-           }
-
-           function createMarker(place) {
-              var marker = new google.maps.Marker({
-                 map: testmap,
-                 position: place.geometry.location
-              });
-              google.maps.event.addListener(marker, "click", function() {
-                infowindow.setContent(place.name);
-                infowindow.open(testmap, this);
-               });
            }((this.window = this.window || {})); 
+
+           
            </script>
             
             <script async defer
