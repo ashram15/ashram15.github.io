@@ -72,7 +72,7 @@
           <div class = "topnav" >
             <h2> Type your closest city or zipcode: </h2>
             
-            <h4> TestTrack has used the Google Maps APIs to call certain functions and makes this possible. Test 999 </h4>
+            <h4> TestTrack has used the Google Maps APIs to call certain functions and makes this possible. Test 10 </h4>
             <!--Test Track Map goes here -->
             <div id="testtrackmap"></div>
       
@@ -95,8 +95,8 @@
                  query: "COVID-19 Testing Center"
                  fields: ["name", "geometry"]
                };
-               //var request = new google.maps.places.PlacesService(testmap);
-               document.findPlaceFromQuery(covidquery, function(results, status) {
+               var request = new google.maps.places.PlacesService(testmap);
+               request.findPlaceFromQuery(covidquery, function(results, status) {
                   if (status === google.maps.places.PlacesServiceStatus.OK) {
                     for (var i = 0; i < results.length; i++) {
                       createMarker(results[i]);
@@ -141,7 +141,7 @@
            </script>
             
             <script async defer
-               src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBwz4f8LJtQ1XmNxgn688QpvPjBoU9bO5U&callback=testMap&libraries=places">
+               src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBwz4f8LJtQ1XmNxgn688QpvPjBoU9bO5U&callback=testMap">
             </script>      
             <div id = "textboxinput">
               <input id="location" type="textbox" value="USA" />
