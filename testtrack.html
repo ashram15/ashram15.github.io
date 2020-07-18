@@ -89,7 +89,7 @@
                
                var testmap = new google.maps.Map(document.getElementById('testtrackmap'), {zoom: 5, center: usa});
 
-              <!--Calling the Geoencoding API - learned from Google Developers API Page -->
+              //<!--Calling the Geoencoding API - learned from Google Developers API Page -->
                var geocoder = new google.maps.Geocoder();
                document.getElementById("geosubmit").addEventListener("click", function() {
                   geocodeLocation(geocoder, testtrackmap);
@@ -117,13 +117,14 @@
                }
              );
            }
-           })  exports.geocodeLocation = geocodeLocation;
-               exports.testMap = testMap;
-            </script>
+           })  
+           exports.geocodeLocation = geocodeLocation;
+           exports.testMap = testMap;
+           </script>
             
-            <script async defer
-            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBwz4f8LJtQ1XmNxgn688QpvPjBoU9bO5U&callback=testMap&libraries=&v=weekly">
-            </script>
+           <script async defer
+           src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBwz4f8LJtQ1XmNxgn688QpvPjBoU9bO5U&callback=testMap&libraries=&v=weekly">
+           </script>
             
             <div id = "textboxinput">
               <input id="location" type="textbox" value="USA" />
