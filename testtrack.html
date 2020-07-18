@@ -88,20 +88,11 @@
                document.getElementById("geosubmit").addEventListener("click", function() {
                   geocodeLocation(geocoder, testmap);
                });
-             
-            }
-
-            function call(results, status) {
-                if (status == google.maps.places.PlacesServiceStatus.OK) {
-                for (var i = 0; i < results.length; i++) {
-                    var place = results[i];
-                    createMarker(results[i]);
-                }
-              }
-            }                           
-                                        
+               placeSearch();             
+            }                         
+            
+            var address = document.getElementById("location").value;              
             function geocodeLocation(geocoder, resultsMap) {
-              var address = document.getElementById("location").value;
               geocoder.geocode(
               {
                 address: address
@@ -118,10 +109,31 @@
                      "Sorry, but the geocoding was not successful because of: " + status
                     );
                   }
-               }
+                }
              );
            }
-              
+
+           function placeSearch(){
+             var infowindow = new google.maps.InfoWindow();
+             //Calling the Places API
+             var covidquery = {
+                location: address,
+                radius = '500',
+                query: 'COVID-19 Testing Center'
+             };
+             request = new google.maps.places.PlacesService(testmap);
+             request.textSearch(covidquery, call);
+           }
+
+           function call(results, status) {
+             if (status === google.maps.places.PlacesServiceStatus.OK) {
+                 for (var i = 0; i < results.length; i++) {
+                     var place = results[i];
+                     createMarker(results[i]);
+                 }
+              }
+           }         
+ 
           function createMarker(place) {
               var marker = new google.maps.Marker({
                  map: testmap,
