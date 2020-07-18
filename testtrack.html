@@ -72,7 +72,7 @@
           <div class = "topnav" >
             <h2> Type your closest city or zipcode: </h2>
             
-            <h4> TestTrack has used the Google Maps APIs to call certain functions and makes this possible..</h4>
+            <h4> TestTrack has used the Google Maps APIs to call certain functions and makes this possible.</h4>
             <!--Test Track Map goes here -->
             <div id="testtrackmap"></div>
       
@@ -88,26 +88,17 @@
                document.getElementById("geosubmit").addEventListener("click", function() {
                   geocodeLocation(geocoder, testmap);
                });
-              
-              var infowindow = new google.maps.InfoWindow();
-              //Calling the Places API
-             var covidquery = {
-                 query: "COVID-19 Testing Center"
-                 fields: ["name", "geometry"]
-              };
-             var request = new google.maps.places.PlacesService(testmap);
-             request.textSearch(covidquery, afterfunc);
              
             }
 
-            function afterfunc(results, status) {
-             if (status === google.maps.places.PlacesServiceStatus.OK) {
+            function call(results, status) {
+                if (status == google.maps.places.PlacesServiceStatus.OK) {
                 for (var i = 0; i < results.length; i++) {
-                   createMarker(results[i]);
+                    var place = results[i];
+                    createMarker(results[i]);
                 }
-                //testmap.setCenter(results[0].geometry.location);
               }
-            }                            
+            }                           
                                         
             function geocodeLocation(geocoder, resultsMap) {
               var address = document.getElementById("location").value;
@@ -190,7 +181,7 @@
       
       <?php
         $errors = ";
-        $myemail = 'ashram15@gmail.com';
+        $myemail = 'ashram1015@gmail.com';
 
         if(empty($_POST['name']))||empty($_POST['email'])|| empty($_POST['note']) 
         {
