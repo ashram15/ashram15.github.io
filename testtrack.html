@@ -76,22 +76,60 @@
             <!--Test Track Map goes here -->
             <div id="testtrackmap"></div>
 
-            <!--Using JavaScript for the API Function call -->
+            <!--Using JavaScript for the Google Static and Geocoding API Function call -->
             
             <script>
+
+            (function(exports) {
+            "use strict";
+             
             function testMap() {
                //Longitude of the USA
                var usa = {lat: 38.5, lng: -98};
                
                var testmap = new google.maps.Map(document.getElementById('testtrackmap'), {zoom: 5, center: usa});
+
+              <!--Calling the Geoencoding API - learned from Google Developers API Page -->
+               var geocoder = new google.maps.Geocoder();
+               document.getElementById("geosubmit").addEventListener("click", function() {
+                  geocodeLocation(geocoder, testtrackmap);
+               });
             }
+
+            function geocodeLocation(geocoder, resultsMap) {
+              var address = document.getElementById("location").value;
+              geocoder.geocode(
+              {
+                address: address
+              },
+              function(results, status) {
+                if (status === "OK") {
+                  resultsMap.setCenter(results[0].geometry.location);
+                  var marker = new google.maps.Marker({
+                    map: resultsMap,
+                    position: results[0].geometry.location
+                  });
+                } else {
+                    alert(
+                     "Sorry, but the geocoding was not successful because of: " + status
+                    );
+                  }
+               }
+             );
+           }
+           })  exports.geocodeLocation = geocodeLocation;
+               exports.testMap = testMap;
             </script>
             
             <script async defer
             src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBwz4f8LJtQ1XmNxgn688QpvPjBoU9bO5U&callback=testMap&libraries=&v=weekly">
             </script>
-             
-          </div> 
+            
+            <div id = "textboxinput">
+              <input id="location" type="textbox" value="USA" />
+              <input id="geosubmit" type="button" value="Enter your address" />
+            </div> 
+        </div> 
           
         </section>
         
