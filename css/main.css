@@ -1,10 +1,10 @@
 
-#testtrackmap {
+#map {
   height: 400px;
   width: 100%;
 }
 
-#textboxinput {
+#floating-panel {
   position: absolute;
   top: 70px;
   left: 30%;
