@@ -6,7 +6,7 @@ By Aishwarya Ramesh and Aarushi Ramesh
 With the COVID-19 pandemic increasing in scale, testing has become extremely crucial in containing and tracking this virus. Recently, there has been a significant demand in testing and it has become extremely hard for people to find testing centers and efficiently get themselves tested. After reading these headlines every day, we wanted to provide a way to make it easier for the public to locate the closest COVID-19 centers and get tested right away in an efficient manner.
 
 **What it does**
-[Test Track Process](/testtrackprocess.png)
+![Test Track Process](/testtrackprocess.png)
 
 TestTrack is a website that will help people keep track of the coronavirus testing locations around their area. The website will prompt the user to type in their zip code or address and will call certain Maps API’s to locate the closest COVID-19 testing locations. We will also specify the wait time allocated with each close testing location in order for them to optimize their time and get tested as soon as possible. We will observe the wait times by using the google distance matrix api at the user’s particular time. The wait times depend on the time that the user uses the website; for a more accurate result, the user can also use the website right when they reach the center to see the wait times at that exact time.
 
