@@ -1,21 +1,12 @@
-/*@keyframes line {
-  0%, 100% {
-    opacity: 0;
-  }
-  50% {
-    opacity: 1;
-  }
-}*/
-
 
 #testtrackmap {
-  height: 600px;
+  height: 400px;
   width: 100%;
 }
 
 #textboxinput {
   position: absolute;
-  top: 50px;
+  top: 70px;
   left: 30%;
   z-index: 5;
   background-color: #fff;
