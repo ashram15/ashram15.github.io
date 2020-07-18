@@ -73,65 +73,66 @@
             <h2> Type your closest city or zipcode: </h2>
             <input type = "text" placeholder = "Search...">
             
-            <h4> TestTrack has used the Google Maps APIs to call certain functions and makes this possible. Test 2 </h4>
+            <h4> TestTrack has used the Google Maps APIs to call certain functions and makes this possible. Test 3 </h4>
             <!--Test Track Map goes here -->
-            <div id="testtrackmap">
+            <div id="testtrackmap"></div>
 
             <!--Using JavaScript for the Google Static and Geocoding API Function call -->
+            <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
             <script
-               src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBwz4f8LJtQ1XmNxgn688QpvPjBoU9bO5U&callback=testMap">
+               src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap&libraries=&v=weekly"
                defer
-            </script>
-            </div>
-            
-            <script>
+             ></script>
+           
+    <script>
+      (function(exports) {
+        "use strict";
 
-            (function(exports) {
-            "use strict";
-             
-            function testMap() {
-               //Latitude Longitude of the USA
-               var usa = {lat: 38.5, lng: -98};
-               var testmap = new google.maps.Map(document.getElementById("testtrackmap"), {zoom: 5, center: usa});
-
-              //<!--Calling the Geoencoding API - learned from Google Developers API Page -->
-               var geocoder = new google.maps.Geocoder();
-               document.getElementById("geosubmit").addEventListener("click", function() {
-                  geocodeLocation(geocoder, testmap);
-               });
+        function initMap() {
+          var map = new google.maps.Map(document.getElementById("map"), {
+            zoom: 8,
+            center: {
+              lat: -34.397,
+              lng: 150.644
             }
+          });
+          var geocoder = new google.maps.Geocoder();
+          document
+            .getElementById("submit")
+            .addEventListener("click", function() {
+              geocodeAddress(geocoder, map);
+            });
+        }
 
-            function geocodeLocation(geocoder, resultsMap) {
-              var address = document.getElementById("location").value;
-              geocoder.geocode(
-              {
-                address: address
-              },
-              function(results, status) {
-                if (status === "OK") {
-                  resultsMap.setCenter(results[0].geometry.location);
-                  var marker = new google.maps.Marker({
-                    map: resultsMap,
-                    position: results[0].geometry.location
-                  });
-                } else {
-                    alert(
-                     "Sorry, but the geocoding was not successful because of: " + status
-                    );
-                  }
-               }
-             );
-           }
-              exports.geocodeLocation = geocodeLocation;
-              exports.testMap = testMap;
-           }) ((this.window = this.window || {}));
-           </script>
+        function geocodeAddress(geocoder, resultsMap) {
+          var address = document.getElementById("address").value;
+          geocoder.geocode(
+            {
+              address: address
+            },
+            function(results, status) {
+              if (status === "OK") {
+                resultsMap.setCenter(results[0].geometry.location);
+                var marker = new google.maps.Marker({
+                  map: resultsMap,
+                  position: results[0].geometry.location
+                });
+              } else {
+                alert(
+                  "Geocode was not successful for the following reason: " +
+                    status
+                );
+              }
+            }
+          );
+        }
+
+        exports.geocodeAddress = geocodeAddress;
+        exports.initMap = initMap;
+      })((this.window = this.window || {}));
+      </script>
             
-            <div id = "textboxinput">
-              <input id="location" type="textbox" value="USA" />
-              <input id="geosubmit" type="button" value="Enter your address" />
-            </div> 
-        </div> 
+         </div> 
           
         </section>
         
