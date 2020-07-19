@@ -11,14 +11,14 @@
   <body>
       <script>
               //Dynamically changing background
-              var intro = document.createElement('div');
+              var intro = document.createElementByTag('div');
               intro.style.height=100vh;
               document.body.appendChild(intro);
-              intro.addEventListener('mousemove', function(move){
-                var x = move.clientX,
-                var y = move.clientY;
+              intro.addEventListener('mousemove', function(event){
+                var x = event.clientX,
+                y = event.clientY;
                 intro.style.backgroundColor = 'rgb('+x+', '+y+', +100)'
-              });
+              })
       </script>
       <header>
         <a href = "#Intro" >
