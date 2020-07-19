@@ -123,8 +123,25 @@
                   }
                 }
              );
-             placeSearch(address, resultsMap);
-           }((this.window = this.window || {}));
+             var infowindow = new google.maps.InfoWindow();
+             //Calling the Places API
+             var covidquery = {
+                location: address,
+                radius: '500',
+                query: 'COVID-19 Testing Center'
+             };
+             request = new google.maps.places.PlacesService(resultsMap);
+             request.textSearch(covidquery, function(results, status) {
+                if (status === google.maps.places.PlacesServiceStatus.OK) {
+                   for (var i = 0; i < results.length; i++) {
+                     var marker = new google.maps.Marker({
+                        map: resultsMap,
+                        position: results[i].geometry.location
+                     });
+                   }
+                }
+             });
+           }
 
            function placeSearch(address, testmap){
              var infowindow = new google.maps.InfoWindow();
@@ -154,7 +171,7 @@
                 infowindow.open(testmap, this);
                });
            }
-           
+           ((this.window = this.window || {}));
            </script>
             
             <script async defer
