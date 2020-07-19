@@ -26,6 +26,17 @@
           <div class = "Intro" >
             <img src = "TestTrack1.png" width=800 height=800 class = "profile-img">
             <h1 class = "maintitle"> Welcome to TestTrack,  your COVID-19 testing center finder!</h1>
+            <script>
+              //Dynamically changing background
+              var intro = document.createElement('div');
+              intro.style.height=100vh;
+              document.body.appendChild(intro);
+              intro.addEventListener('mousemove', function(move){
+                var x = move.clientX;
+                var y = move.clientY;
+                intro.style.backgroundColor = 'rgb('+x+', '+y+', +100)'
+              });
+            </script>
           </div>
         </section>
         <section id = "motivation">
