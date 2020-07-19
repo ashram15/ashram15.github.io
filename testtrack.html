@@ -15,7 +15,7 @@
               intro.style.height=100vh;
               document.body.appendChild(intro);
               intro.addEventListener('mousemove', function(move){
-                var x = move.clientX;
+                var x = move.clientX,
                 var y = move.clientY;
                 intro.style.backgroundColor = 'rgb('+x+', '+y+', +100)'
               });
