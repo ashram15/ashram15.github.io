@@ -144,10 +144,15 @@
                });
            }
            
+          function URLencode(url) {
+              this.lat = url.replace(/^.+!3d(.+)!4d.+$/, '$1');
+              this.lng = url.replace(/^.+!4d(.+)!6e.+$/, '$1');
+              return this;
+           }
            </script>
             
             <script async defer
-               src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBwz4f8LJtQ1XmNxgn688QpvPjBoU9bO5U&callback=testMap&libraries=places">
+               src= new URLencode("https://maps.googleapis.com/maps/api/js?key=AIzaSyBwz4f8LJtQ1XmNxgn688QpvPjBoU9bO5U&callback=testMap&libraries=places")>
             </script>      
             <div id = "textboxinput">
               <input id="location" type="textbox" value="USA" />
