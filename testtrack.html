@@ -101,12 +101,12 @@
                });
             }                         
             
-            var address = document.getElementById("location").value; 
-            var encodeadd = encodeURI(address);
+            //var encodeadd = encodeURI(address);
             function geocodeLocation(geocoder, resultsMap) {
+              var address = document.getElementById("location").value; 
               geocoder.geocode(
               {
-                address: encodeadd
+                address: address
               },
               function(results, status) {
                 if (status === "OK") {
