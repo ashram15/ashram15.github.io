@@ -81,7 +81,7 @@
 
         <section id = "site">
           <div class = "topnav" >
-            <h2> Type your closest city or zipcode: </h2>
+            <h2> Type your closest city or zipcode:: </h2>
             
             <h4> TestTrack has used the Google Maps APIs to call certain functions and makes this possible.</h4>
             <!--Test Track Map goes here -->
@@ -102,6 +102,7 @@
               var infowindow = new google.maps.InfoWindow();
               //Calling the Places API
               var covidquery = {
+                location: usa,
                 radius: '500',
                 query: 'restaurant'
               };
@@ -111,9 +112,13 @@
                    for (var i = 0; i < results.length; i++) {
                      var marker = new google.maps.Marker({
                          map: testmap,
-                         position: place.geometry.location
+                         position: results[i].geometry.location
                      });
                    }
+                } else {
+                    alert(
+                      "Sorry but the places Search API was not successful because of: " + status
+                    );
                 }
              });
             }                         
