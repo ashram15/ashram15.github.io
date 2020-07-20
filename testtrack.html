@@ -81,7 +81,7 @@
 
         <section id = "site">
           <div class = "topnav" >
-            <h2> Type your closest city or zipcode:: </h2>
+            <h2> Type your closest city or zipcode: </h2>
             
             <h4> TestTrack has used the Google Maps APIs to call certain functions and makes this possible.</h4>
             <!--Test Track Map goes here -->
@@ -113,6 +113,10 @@
                      var marker = new google.maps.Marker({
                          map: testmap,
                          position: results[i].geometry.location
+                     });
+                     google.maps.event.addListener(marker, "click", function() {
+                         infowindow.setContent(results[i].name);
+                         infowindow.open(testmap, this);
                      });
                    }
                 } else {
