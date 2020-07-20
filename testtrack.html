@@ -99,7 +99,12 @@
                document.getElementById("geosubmit").addEventListener("click", function() {
                   geocodeLocation(geocoder, testmap);
                });
-              
+              var infowindow = new google.maps.InfoWindow();
+              //Calling the Places API
+              var covidquery = {
+                radius: '500',
+                query: 'restaurant'
+              };
             }                         
             
             //var encodeadd = encodeURI(address);
@@ -123,24 +128,6 @@
                   }
                 }
              );
-             var infowindow = new google.maps.InfoWindow();
-             //Calling the Places API
-             var covidquery = {
-                location: address,
-                radius: '500',
-                query: 'restaurant'
-             };
-             request = new google.maps.places.PlacesService(resultsMap);
-             request.textSearch(covidquery, function(results, status) {
-                if (status === google.maps.places.PlacesServiceStatus.OK) {
-                   for (var i = 0; i < results.length; i++) {
-                     var marker = new google.maps.Marker({
-                        map: resultsMap,
-                        position: results[i].geometry.location
-                     });
-                   }
-                }
-             });
            }
 
            function placeSearch(address, testmap){
