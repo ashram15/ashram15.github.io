@@ -106,6 +106,16 @@
                 query: 'restaurant'
               };
               service = new google.maps.places.PlacesService(testmap);
+              service.textSearch(covidquery, function(results, status) {
+                if (status === google.maps.places.PlacesServiceStatus.OK) {
+                   for (var i = 0; i < results.length; i++) {
+                     var marker = new google.maps.Marker({
+                         map: testmap,
+                         position: place.geometry.location
+                     });
+                   }
+                }
+             });
             }                         
             
             //var encodeadd = encodeURI(address);
