@@ -104,7 +104,7 @@
               var covidquery = {
                 location: usa,
                 radius: '500',
-                query: 'restaurant'
+                query: 'covid19-testing-center'
               };
               service = new google.maps.places.PlacesService(testmap);
               service.textSearch(covidquery, function(results, status) {
