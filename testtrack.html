@@ -83,7 +83,7 @@
           <div class = "topnav" >
             <h2> Type your closest city or zipcode: </h2>
             
-            <h4> TestTrack has used the Google Maps APIs to call certain functions and makes this possible.</h4>
+            <h4> TestTrack has used the Google Maps APIs to call certain functions and makes this possible!</h4>
             <!--Test Track Map goes here -->
             <div id="testtrackmap"></div>
       
@@ -114,9 +114,9 @@
                          map: testmap,
                          position: results[i].geometry.location
                      });
-                     google.maps.event.addListener(marker, "click", function() {
+                     marker.addListener("click", function() {
                          infowindow.setContent(results[i].name);
-                         infowindow.open(testmap, this);
+                         infowindow.open(testmap, marker);
                      });
                    }
                 } else {
