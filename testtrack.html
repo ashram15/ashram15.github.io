@@ -59,7 +59,7 @@
               <img src= "Step1.png" width=320 height= 300 class= "img1" >
               <figcaption>
                 Step 1:<br>
-                On the map below, enter your zip-code or closest city in the search bar. 
+                On the map below, enter your zip-code or closest city in the search bar.
               </figcaption>
             </figure>
             <figure>
@@ -82,11 +82,11 @@
         <section id = "site">
           <div class = "topnav" >
             <h2> Type your closest city or zipcode: </h2>
-            
-            <h4> TestTrack has used the Google Maps APIs to call certain functions and makes this possible!</h4>
+
+            <h4> TestTrack has used the Google Maps APIs to call certain functions and makes this possible!!</h4>
             <!--Test Track Map goes here -->
             <div id="testtrackmap"></div>
-      
+
             <script>
 
             function testMap() {
@@ -115,8 +115,9 @@
                          position: results[i].geometry.location
                      });
                      google.maps.event.addListener(marker, 'click', function() {
+                         //want to add the description, name of the place
                          var markerContent = 'about-the-place'
-                         infowindow.setContent(markerContent);
+                         infowindow.setContent(results[i].formatted_address);
                          infowindow.open(testmap, this);
                      });
                    }
@@ -126,11 +127,10 @@
                     );
                 }
              });
-            }                         
-            
-            //var encodeadd = encodeURI(address);
+            }
+
             function geocodeLocation(geocoder, resultsMap) {
-              var address = document.getElementById("location").value; 
+              var address = document.getElementById("location").value;
               geocoder.geocode(
               {
                 address: address
@@ -168,7 +168,7 @@
                 }
              });
            }
-              
+
           function createMarker(place, testmap) {
               var marker = new google.maps.Marker({
                  map: testmap,
@@ -181,31 +181,31 @@
            }
            ((this.window = this.window || {}));
            </script>
-            
+
             <script async defer
                src= "https://maps.googleapis.com/maps/api/js?key=AIzaSyBwz4f8LJtQ1XmNxgn688QpvPjBoU9bO5U&callback=testMap&libraries=places">
-            </script>      
+            </script>
             <div id = "textboxinput">
               <input id="location" type="textbox" value="USA" />
               <input id="geosubmit" type="button" value="Enter your address" />
             </div>
-            
-         </div> 
-          
+
+         </div>
+
         </section>
-        
+
         <section id = "Contact">
           <div class = "contact">
             <h2 class = "align"> Contact: </h2>
-            <form method = "get" name = "contact-form" action= "contact-form-handler.php" enctype="text/plain"> 
-              Name: <input type= "text" name = "name" >  
+            <form method = "get" name = "contact-form" action= "contact-form-handler.php" enctype="text/plain">
+              Name: <input type= "text" name = "name" >
               Email Address: <input type= "text" name = "email">
               Note: <textarea name = "note"> </textarea>
               <input type = "submit" value = "submit">
             </form>
-            
+
         </section>
-        
+
       </main>
       <footer>
          <h3>TestTrack 2020</h3>
@@ -219,18 +219,18 @@
         sr.reveal('.contact');
       </script>
 
-      <script language = "JavaScript"> 
+      <script language = "JavaScript">
           var fmvalid = new Validator("contactform");
           fmvalid.addValidation("name", "req", "Please enter your name");
           fmvalid.addValidation("email", "req", "Please enter your email");
           fmvalid.addValidation("email", "email", "Please provode a valid email address");
       </script>
-      
+
       <?php
         $errors = ";
         $myemail = 'ashram1015@gmail.com';
 
-        if(empty($_POST['name']))||empty($_POST['email'])|| empty($_POST['note']) 
+        if(empty($_POST['name']))||empty($_POST['email'])|| empty($_POST['note'])
         {
           $errors.="\n Error: all fields are required";
         }
@@ -244,7 +244,7 @@
           $errors.="\n Error: INvalid email address";
         }
 
-        if(empty($errors)) //if there are no errors or errors is empty 
+        if(empty($errors)) //if there are no errors or errors is empty
         {
           $to = $myemail;
           $email_subject = "Contact form submission: $name";
@@ -256,5 +256,3 @@
       ?>
   </body>
 </html>
-
-        
