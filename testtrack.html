@@ -114,9 +114,10 @@
                          map: testmap,
                          position: results[i].geometry.location
                      });
-                     marker.addListener("click", function() {
-                         infowindow.setContent(results[i].name);
-                         infowindow.open(testmap, marker);
+                     google.maps.event.addListener(marker, 'click', function() {
+                         var markerContent = 'about-the-place'
+                         infowindow.setContent(markerContent);
+                         infowindow.open(testmap, this);
                      });
                    }
                 } else {
