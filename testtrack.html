@@ -83,7 +83,7 @@
           <div class = "topnav" >
             <h2> Type your closest city or zipcode: </h2>
 
-            <h4> TestTrack has used the Google Maps APIs to call certain functions and makes this possible!!</h4>
+            <h4> TestTrack has used the Google Maps APIs to call certain functions and makes this possible!</h4>
             <!--Test Track Map goes here -->
             <div id="testtrackmap"></div>
 
@@ -93,7 +93,6 @@
                //Latitude Longitude of the USA
                var usa = {lat: 38.5, lng: -98};
                var testmap = new google.maps.Map(document.getElementById("testtrackmap"), {zoom: 5, center: usa});
-               var getadd;
               //<!--Calling the Geoencoding API - learned from Google Developers API Page -->
                var geocoder = new google.maps.Geocoder();
                document.getElementById("geosubmit").addEventListener("click", function() {
@@ -114,49 +113,60 @@
               service.textSearch(covidquery, function(results, status) {
                 if (status === google.maps.places.PlacesServiceStatus.OK) {
                    for (var i = 0; i < results.length; i++) {
-                     place_ids.push(results[i]);
+                     var marker = new google.maps.Marker({
+                         map: testmap,
+                         place: {
+                           placeId: results[i].place_id,
+                           location: results[i].geometry.location
+                         }
+                     });
+                     google.maps.event.addListener(marker, "click", function() {
+                        infowindow.setContent("about-this-place");
+                        infowindow.open(testmap, this);
+                     }
+                     //place_ids.push(results[i]);
                    }
                 } else {
                     alert(
                       "Sorry but the places Search API was not successful because of: " + status
                     );
                 }
-             });
-
-             //Showing place information for every place returned
-             serviceinfo = new google.maps.places.PlacesService(testmap)
-             for(var a = 0; a < place_ids.length; a++){
-               var place_info =  {
-                 placeId: place_ids[a].place_id;
-                 fields: ["name", "formatted_address", "place_id", "geometry"]
-               }
-               serviceinfo.getDetails(place_info, function(place, status){
-                 if(status === google.maps.places.PlacesServicesStatus.OK) {
-                   var marker = new google.maps.Marker({
-                       map: testmap,
-                       place: {
-                         placeId: place_ids[a].place_id,
-                         location: place_ids[a].geometry.location
-                       }
-                   });
-                   google.maps.event.addListener(marker, "click", function() {
-                      infowindow.setContent(
-                          "<div><strong>" +
-                          place.name +
-                          "</strong><br>" +
-                          "Place ID: " +
-                          place.place_id +
-                          "<br>" +
-                          place.formatted_address +
-                          "</div>"
-                    );
-                    // @ts-ignore
-                    infowindow.open(testmap, this);
-                   }
-                 }
-                });
-              }
+              });
             }
+
+             // //Showing place information for every place returned
+             // serviceinfo = new google.maps.places.PlacesService(testmap)
+             // for(var a = 0; a < place_ids.length; a++){
+             //   var place_info =  {
+             //     placeId: place_ids[a].place_id;
+             //     fields: ["name", "formatted_address", "place_id", "geometry"]
+             //   }
+             //   serviceinfo.getDetails(place_info, function(place, status){
+             //     if(status === google.maps.places.PlacesServicesStatus.OK) {
+             //       var marker = new google.maps.Marker({
+             //           map: testmap,
+             //           place: {
+             //             placeId: place_ids[a].place_id,
+             //             location: place_ids[a].geometry.location
+             //           }
+             //       });
+             //       google.maps.event.addListener(marker, "click", function() {
+             //          infowindow.setContent(
+             //              "<div><strong>" +
+             //              place.name +
+             //              "</strong><br>" +
+             //              "Place ID: " +
+             //              place.place_id +
+             //              "<br>" +
+             //              place.formatted_address +
+             //              "</div>"
+             //        );
+             //        // @ts-ignore
+             //        infowindow.open(testmap, this);
+             //       }
+             //     }
+             //    });
+             //  }
 
             function geocodeLocation(geocoder, resultsMap) {
               var address = document.getElementById("location").value;
