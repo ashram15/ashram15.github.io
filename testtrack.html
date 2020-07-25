@@ -105,32 +105,24 @@
                 radius: '500',
                 query: 'covid19-testing-center'
               };
-
-              //Initializing Place Ids array
-              var place_ids = new Array();
-
               service = new google.maps.places.PlacesService(testmap);
               service.textSearch(covidquery, function(results, status) {
                 if (status === google.maps.places.PlacesServiceStatus.OK) {
                    for (var i = 0; i < results.length; i++) {
                      var marker = new google.maps.Marker({
                          map: testmap,
-                         place: {
-                           placeId: results[i].place_id,
-                           location: results[i].geometry.location
-                         }
+                         position: results[i].geometry.location
                      });
                      google.maps.event.addListener(marker, "click", function() {
                         infowindow.setContent("about-this-place");
-                        infowindow.open(testmap, this);
+                        infowindow.open(testmap, marker);
                      }
-                     //place_ids.push(results[i]);
                    }
                 } else {
                     alert(
                       "Sorry but the places Search API was not successful because of: " + status
                     );
-                }
+                 }
               });
             }
 
