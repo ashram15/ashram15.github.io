@@ -93,7 +93,7 @@
                //Latitude Longitude of the USA
                var usa = {lat: 38.5, lng: -98};
                var testmap = new google.maps.Map(document.getElementById("testtrackmap"), {zoom: 5, center: usa});
-
+               var getadd;
               //<!--Calling the Geoencoding API - learned from Google Developers API Page -->
                var geocoder = new google.maps.Geocoder();
                document.getElementById("geosubmit").addEventListener("click", function() {
@@ -106,20 +106,15 @@
                 radius: '500',
                 query: 'covid19-testing-center'
               };
+
+              //Initializing Place Ids array
+              var place_ids = new Array();
+
               service = new google.maps.places.PlacesService(testmap);
               service.textSearch(covidquery, function(results, status) {
                 if (status === google.maps.places.PlacesServiceStatus.OK) {
                    for (var i = 0; i < results.length; i++) {
-                     var marker = new google.maps.Marker({
-                         map: testmap,
-                         position: results[i].geometry.location
-                     });
-                     google.maps.event.addListener(marker, 'click', function() {
-                         //want to add the description, name of the place
-                         var markerContent = 'about-the-place'
-                         infowindow.setContent(results[i].formatted_address);
-                         infowindow.open(testmap, this);
-                     });
+                     place_ids.push(results[i]);
                    }
                 } else {
                     alert(
@@ -127,6 +122,40 @@
                     );
                 }
              });
+
+             //Showing place information for every place returned
+             serviceinfo = new google.maps.places.PlacesService(testmap)
+             for(var a = 0; a < place_ids.length; a++){
+               var place_info =  {
+                 placeId: place_ids[a].place_id;
+                 fields: ["name", "formatted_address", "place_id", "geometry"]
+               }
+               serviceinfo.getDetails(place_info, function(place, status){
+                 if(status === google.maps.places.PlacesServicesStatus.OK) {
+                   var marker = new google.maps.Marker({
+                       map: testmap,
+                       place: {
+                         placeId: place_ids[a].place_id,
+                         location: place_ids[a].geometry.location
+                       }
+                   });
+                   google.maps.event.addListener(marker, "click", function() {
+                      infowindow.setContent(
+                          "<div><strong>" +
+                          place.name +
+                          "</strong><br>" +
+                          "Place ID: " +
+                          place.place_id +
+                          "<br>" +
+                          place.formatted_address +
+                          "</div>"
+                    );
+                    // @ts-ignore
+                    infowindow.open(testmap, this);
+                   }
+                 }
+                });
+              }
             }
 
             function geocodeLocation(geocoder, resultsMap) {
@@ -151,34 +180,6 @@
              );
            }
 
-           function placeSearch(address, testmap){
-             var infowindow = new google.maps.InfoWindow();
-             //Calling the Places API
-             var covidquery = {
-                location: address,
-                radius: '500',
-                query: 'restaurant'
-             };
-             service = new google.maps.places.PlacesService(testmap);
-             service.textSearch(covidquery, function(results, status) {
-                if (status === google.maps.places.PlacesServiceStatus.OK) {
-                   for (var i = 0; i < results.length; i++) {
-                     createMarker(results[i], testmap);
-                   }
-                }
-             });
-           }
-
-          function createMarker(place, testmap) {
-              var marker = new google.maps.Marker({
-                 map: testmap,
-                 position: place.geometry.location
-              });
-              google.maps.event.addListener(marker, "click", function() {
-                infowindow.setContent(place.name);
-                infowindow.open(testmap, this);
-               });
-           }
            ((this.window = this.window || {}));
            </script>
 
