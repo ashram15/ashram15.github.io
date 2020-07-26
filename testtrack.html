@@ -92,7 +92,7 @@
             function testMap() {
                //Latitude Longitude of the USA
               var usa = {lat: 38.5, lng: -98};
-              var testmap = new google.maps.Map(document.getElementById("testtrackmap"), {zoom: 6, center: usa});
+              var testmap = new google.maps.Map(document.getElementById("testtrackmap"), {zoom: 5, center: usa});
               //<!--Calling the Geoencoding API - learned from Google Developers API Page -->
               var geocoder = new google.maps.Geocoder();
               document.getElementById("geosubmit").addEventListener("click", function() {
@@ -104,7 +104,7 @@
               var covidquery = {
                   location: usa,
                   radius: '500',
-                  query: 'covid-testing-center'
+                  query: 'covid19-testing-center'
                };
 
               //var locations = [];
@@ -117,7 +117,7 @@
                          map: testmap,
                          position: results[i].geometry.location
                      });
-                     locations.push(results[i]);
+                     //locations.push(results[i]);
                      google.maps.event.addListener(marker, "click", function() {
                         infowindow.setContent("about-the-place");
                         infowindow.open(testmap);

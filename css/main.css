@@ -1,13 +1,12 @@
 
 #testtrackmap {
    height: 600px;
-   width: 90%
-
+   width: 90%;
 }
 
 #textboxinput {
    position: absolute;
-   top: 130px;
+   top: 150px;
    left: 25%;
    z-index: 5;
    background-color: #fff;
@@ -23,7 +22,7 @@
     width:100%;
     min-width:1000px;
     height:auto;
-} 
+}
 
 body {
   margin: 0;
@@ -63,7 +62,7 @@ section {
   justify-content: center;
   align-items: center;
   text-align: center;
-  
+
 }
 
 #Intro.profile-img {
@@ -146,23 +145,3 @@ label{
 input, label{
   margin: 1rem;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
