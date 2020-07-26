@@ -92,7 +92,7 @@
             function testMap() {
                //Latitude Longitude of the USA
                var usa = {lat: 38.5, lng: -98};
-               var testmap = new google.maps.Map(document.getElementById("testtrackmap"), {zoom: 5, center: usa});
+               var testmap = new google.maps.Map(document.getElementById("testtrackmap"), {zoom: 9, center: usa});
               //<!--Calling the Geoencoding API - learned from Google Developers API Page -->
                var geocoder = new google.maps.Geocoder();
                document.getElementById("geosubmit").addEventListener("click", function() {
@@ -103,7 +103,7 @@
               var covidquery = {
                 location: usa,
                 radius: '500',
-                query: 'covid19-testing-center'
+                query: 'covid-testing-center'
               };
 
               var locations = new Array();
@@ -130,10 +130,10 @@
               });
 
               serviceinfo = new google.maps.places.PlacesService(testmap)
-              for(var a = 0; a < locations.length; a++){
+              for(var a = 0; a < 2; a++){
                 var place_info =  {
                   placeId: locations[a].place_id,
-                  fields: ["name", "formatted_address", "place_id", "geometry"]
+                  fields: ["name"]//, "formatted_address", "place_id", "geometry"]
                 }
                 serviceinfo.getDetails(place_info, function(place, status){
                     if(status === google.maps.places.PlacesServicesStatus.OK) {
@@ -142,7 +142,7 @@
                           position: place.geometry.location
                       });
                     google.maps.event.addListener(marker, "click", function() {
-                      infowindow.setContent("<div><strong>" + place.name + "Address:" + place.formatted_address);
+                      infowindow.setContent("<div><strong>" + place.name);
                       infowindow.open(testmap);
                     });
                    }
