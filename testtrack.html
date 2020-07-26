@@ -132,7 +132,7 @@
               serviceinfo = new google.maps.places.PlacesService(testmap)
               for(var a = 0; a < locations.length; a++){
                 var place_info =  {
-                  placeId: locations[a].place_id;
+                  placeId: locations[a].place_id,
                   fields: ["name", "formatted_address", "place_id", "geometry"]
                 }
                 serviceinfo.getDetails(place_info, function(place, status){
