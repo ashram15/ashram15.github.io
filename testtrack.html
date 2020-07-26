@@ -91,36 +91,37 @@
 
             function testMap() {
                //Latitude Longitude of the USA
-               var usa = {lat: 38.5, lng: -98};
-               var testmap = new google.maps.Map(document.getElementById("testtrackmap"), {zoom: 7, center: usa});
+              var usa = {lat: 38.5, lng: -98};
+              var add;
+              var testmap = new google.maps.Map(document.getElementById("testtrackmap"), {zoom: 6, center: usa});
               //<!--Calling the Geoencoding API - learned from Google Developers API Page -->
-               var geocoder = new google.maps.Geocoder();
-               document.getElementById("geosubmit").addEventListener("click", function() {
+              var geocoder = new google.maps.Geocoder();
+              document.getElementById("geosubmit").addEventListener("click", function() {
                   geocodeLocation(geocoder, testmap);
                });
               var infowindow = new google.maps.InfoWindow();
-              //Calling the Places API
+               //Calling the Places API
               var covidquery = {
-                location: usa,
-                radius: '500',
-                query: 'covid-testing-center'
-              };
+                  location: add,
+                  radius: '500',
+                  query: 'covid-testing-center'
+               };
 
-              var locations = [];
+              //var locations = [];
 
               service = new google.maps.places.PlacesService(testmap);
               service.textSearch(covidquery, function(results, status) {
                 if (status === google.maps.places.PlacesServiceStatus.OK) {
                    for (var i = 0; i < results.length; i++) {
-                     // var marker = new google.maps.Marker({
-                     //     map: testmap,
-                     //     position: results[i].geometry.location
-                     // });
+                     var marker = new google.maps.Marker({
+                         map: testmap,
+                         position: results[i].geometry.location
+                     });
                      locations.push(results[i]);
-                     // google.maps.event.addListener(marker, "click", function() {
-                     //    infowindow.setContent("Place ID:" + results[i].place_id);
-                     //    infowindow.open(testmap);
-                     // });
+                     google.maps.event.addListener(marker, "click", function() {
+                        infowindow.setContent("about-the-place");
+                        infowindow.open(testmap);
+                     });
                    }
                 } else {
                     alert(
@@ -129,25 +130,25 @@
                  }
               });
 
-              serviceinfo = new google.maps.places.PlacesService(testmap)
-              for(var a = 0; a < 2; a++){
-                var place_info =  {
-                  placeId: locations[a].place_id,
-                  fields: ["name"]//, "formatted_address", "place_id", "geometry"]
-                }
-                serviceinfo.getDetails(place_info, function(place, status){
-                    if(status === google.maps.places.PlacesServicesStatus.OK) {
-                      var marker = new google.maps.Marker({
-                          map: testmap,
-                          position: place.geometry.location
-                      });
-                    google.maps.event.addListener(marker, "click", function() {
-                      infowindow.setContent("<div><strong>" + place.name);
-                      infowindow.open(testmap);
-                    });
-                   }
-                });
-              }
+              // serviceinfo = new google.maps.places.PlacesService(testmap)
+              // for(var a = 0; a < 2; a++){
+              //   var place_info =  {
+              //     placeId: locations[a].place_id,
+              //     fields: ["name"]//, "formatted_address", "place_id", "geometry"]
+              //   }
+              //   serviceinfo.getDetails(place_info, function(place, status){
+              //       if(status === google.maps.places.PlacesServicesStatus.OK) {
+              //         var marker = new google.maps.Marker({
+              //             map: testmap,
+              //             position: place.geometry.location
+              //         });
+              //       google.maps.event.addListener(marker, "click", function() {
+              //         infowindow.setContent("<div><strong>" + place.name);
+              //         infowindow.open(testmap);
+              //       });
+              //      }
+              //   });
+              // }
 
             }
 
@@ -187,6 +188,7 @@
 
             function geocodeLocation(geocoder, resultsMap) {
               var address = document.getElementById("location").value;
+              add = address;
               geocoder.geocode(
               {
                 address: address
