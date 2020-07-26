@@ -105,18 +105,22 @@
                 radius: '500',
                 query: 'covid19-testing-center'
               };
+
+              var locations = new Array();
+
               service = new google.maps.places.PlacesService(testmap);
               service.textSearch(covidquery, function(results, status) {
                 if (status === google.maps.places.PlacesServiceStatus.OK) {
                    for (var i = 0; i < results.length; i++) {
-                     var marker = new google.maps.Marker({
-                         map: testmap,
-                         position: results[i].geometry.location
-                     });
-                     google.maps.event.addListener(marker, "click", function() {
-                        infowindow.setContent("Place ID:" + results[i].place_id);
-                        infowindow.open(testmap);
-                     });
+                     // var marker = new google.maps.Marker({
+                     //     map: testmap,
+                     //     position: results[i].geometry.location
+                     // });
+                     locations.push(results[i]);
+                     // google.maps.event.addListener(marker, "click", function() {
+                     //    infowindow.setContent("Place ID:" + results[i].place_id);
+                     //    infowindow.open(testmap);
+                     // });
                    }
                 } else {
                     alert(
@@ -124,6 +128,39 @@
                     );
                  }
               });
+
+              serviceinfo = new google.maps.places.PlacesService(testmap)
+              for(var a = 0; a < locations.length; a++){
+                var place_info =  {
+                  placeId: locations[a].place_id;
+                  fields: ["name", "formatted_address", "place_id", "geometry"]
+                }
+                serviceinfo.getDetails(place_info, function(place, status){
+                    if(status === google.maps.places.PlacesServicesStatus.OK) {
+                      var marker = new google.maps.Marker({
+                          map: testmap,
+                          place: {
+                            placeId: locations[a].place_id,
+                            location: locations[a].geometry.location
+                          }
+                      });
+                    google.maps.event.addListener(marker, "click", function() {
+                      infowindow.setContent(
+                          "<div><strong>" +
+                          place.name +
+                          "</strong><br>" +
+                          "Place ID: " +
+                          place.place_id +
+                          "<br>" +
+                          place.formatted_address +
+                          "</div>"
+                      );
+                      infowindow.open(testmap);
+                    });
+                   }
+                });
+              }
+
             }
 
              // //Showing place information for every place returned
