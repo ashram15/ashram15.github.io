@@ -139,22 +139,10 @@
                     if(status === google.maps.places.PlacesServicesStatus.OK) {
                       var marker = new google.maps.Marker({
                           map: testmap,
-                          place: {
-                            placeId: locations[a].place_id,
-                            location: locations[a].geometry.location
-                          }
+                          position: place.geometry.location
                       });
                     google.maps.event.addListener(marker, "click", function() {
-                      infowindow.setContent(
-                          "<div><strong>" +
-                          place.name +
-                          "</strong><br>" +
-                          "Place ID: " +
-                          place.place_id +
-                          "<br>" +
-                          place.formatted_address +
-                          "</div>"
-                      );
+                      infowindow.setContent("<div><strong>" + place.name + "Address:" + place.formatted_address);
                       infowindow.open(testmap);
                     });
                    }
