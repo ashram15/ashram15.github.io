@@ -114,7 +114,7 @@
                          position: results[i].geometry.location
                      });
                      google.maps.event.addListener(marker, "click", function() {
-                        infowindow.setContent("Place ID" : results[i].place_id);
+                        infowindow.setContent("Place ID:" + results[i].place_id);
                         infowindow.open(testmap);
                      });
                    }
