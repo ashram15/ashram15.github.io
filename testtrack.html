@@ -103,8 +103,8 @@
                //Calling the Places API
               var covidquery = {
                   location: usa,
-                  radius: '500',
-                  query: 'covid19-testing-center'
+                  radius: '100000',
+                  query: 'covid-testing-center'
                };
 
               //var locations = [];
@@ -130,61 +130,7 @@
                  }
               });
 
-              // serviceinfo = new google.maps.places.PlacesService(testmap)
-              // for(var a = 0; a < 2; a++){
-              //   var place_info =  {
-              //     placeId: locations[a].place_id,
-              //     fields: ["name"]//, "formatted_address", "place_id", "geometry"]
-              //   }
-              //   serviceinfo.getDetails(place_info, function(place, status){
-              //       if(status === google.maps.places.PlacesServicesStatus.OK) {
-              //         var marker = new google.maps.Marker({
-              //             map: testmap,
-              //             position: place.geometry.location
-              //         });
-              //       google.maps.event.addListener(marker, "click", function() {
-              //         infowindow.setContent("<div><strong>" + place.name);
-              //         infowindow.open(testmap);
-              //       });
-              //      }
-              //   });
-              // }
-
             }
-
-             // //Showing place information for every place returned
-             // serviceinfo = new google.maps.places.PlacesService(testmap)
-             // for(var a = 0; a < place_ids.length; a++){
-             //   var place_info =  {
-             //     placeId: place_ids[a].place_id;
-             //     fields: ["name", "formatted_address", "place_id", "geometry"]
-             //   }
-             //   serviceinfo.getDetails(place_info, function(place, status){
-             //     if(status === google.maps.places.PlacesServicesStatus.OK) {
-             //       var marker = new google.maps.Marker({
-             //           map: testmap,
-             //           place: {
-             //             placeId: place_ids[a].place_id,
-             //             location: place_ids[a].geometry.location
-             //           }
-             //       });
-             //       google.maps.event.addListener(marker, "click", function() {
-             //          infowindow.setContent(
-             //              "<div><strong>" +
-             //              place.name +
-             //              "</strong><br>" +
-             //              "Place ID: " +
-             //              place.place_id +
-             //              "<br>" +
-             //              place.formatted_address +
-             //              "</div>"
-             //        );
-             //        // @ts-ignore
-             //        infowindow.open(testmap, this);
-             //       }
-             //     }
-             //    });
-             //  }
 
             function geocodeLocation(geocoder, resultsMap) {
               var address = document.getElementById("location").value;
