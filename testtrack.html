@@ -172,11 +172,11 @@
         <section id = "Contact">
           <div class = "contact">
             <h2 class = "align"> Contact: </h2>
-            <form method = "get" name = "contact-form" action= "contact-form-handler.php" enctype="text/plain">
-              Name: <input type= "text" name = "name" >
-              Email Address: <input type= "text" name = "email">
-              Note: <textarea name = "note"> </textarea>
-              <input type = "submit" value = "submit">
+            <form action="https://formsubmit.co/ashram1015@gmail.com" method="POST">
+              <input type="email" name = "email" placeholder="Email Address" required>
+              <input type="text" name="name" required>
+              <input type="email" name="email" required>
+              <button type="submit">Send</button>
             </form>
 
         </section>
@@ -201,11 +201,7 @@
           fmvalid.addValidation("email", "email", "Please provode a valid email address");
       </script>
       
-     <form action="https://formsubmit.co/ashram1015@gmail.com" method="POST">
-        <input type="text" name="name" required>
-        <input type="email" name="email" required>
-        <button type="submit">Send</button>
-     </form>
+     
         
   </body>
 </html>
