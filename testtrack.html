@@ -200,34 +200,12 @@
           fmvalid.addValidation("email", "req", "Please enter your email");
           fmvalid.addValidation("email", "email", "Please provode a valid email address");
       </script>
-
-      <?php
-        $errors = ";
-        $myemail = 'ashram1015@gmail.com';
-
-        if(empty($_POST['name']))||empty($_POST['email'])|| empty($_POST['note'])
-        {
-          $errors.="\n Error: all fields are required";
-        }
-
-        $name = $_POST['name'];
-        $email_address = $_POST['email'];
-        $note = $_POST['note'];
-
-        if(!preg_match("/^[a-z0-9-] +(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$/i”, $email_address))
-        {
-          $errors.="\n Error: INvalid email address";
-        }
-
-        if(empty($errors)) //if there are no errors or errors is empty
-        {
-          $to = $myemail;
-          $email_subject = "Contact form submission: $name";
-          $email_body = "You have received a new message.". "Here are the details: \n Name: $name\n". "Email: $email_address\n Message\n $message";
-          $headers = "Form: $myemail\n";
-          $headers.= "Reply-To:$email_address";
-          mail($to, $email_subject, $email_body, $headers);
-        }
-      ?>
+      
+     <form action="https://formsubmit.co/ashram1015@gmail.com" method="POST">
+        <input type="text" name="name" required>
+        <input type="email" name="email" required>
+        <button type="submit">Send</button>
+     </form>
+        
   </body>
 </html>
