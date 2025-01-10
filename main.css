@@ -1,0 +1,146 @@
+
+#testtrackmap {
+   height: 600px;
+   width: 90%;
+}
+
+#textboxinput {
+   position: absolute;
+   top: 150px;
+   left: 25%;
+   z-index: 5;
+   background-color: #ffffff;
+   padding: 5px;
+   border: 1px solid #999;
+   text-align: center;
+   font-family: 'Montserrat', sans-serif;
+   line-height: 30px;
+   padding-left: 10px;
+}
+
+.WebContainer{
+    width:100%;
+    min-width:1000px;
+    height:auto;
+}
+
+body {
+  margin: 0;
+  margin-top: 40px;
+  background-color:#edecec;
+  font-family:'Montserrat', sans-serif;
+}
+
+header {
+  display: flex;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 40px;
+  line-height: 40px;
+  background-color:#87cfcd;
+}
+
+header * {
+  display: inline;
+  height : 40px;
+}
+
+header ul {
+  padding : 0;
+}
+
+header li {
+  margin-left: 20px;
+}
+
+section {
+  height : 100vh;
+  border: 8px solid white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+}
+
+#Intro.profile-img {
+  width: 250px;
+}
+
+footer {
+  text-align: center;
+  padding: 50px;
+  background-color: #87cfcd;
+}
+
+p{
+  margin-left: 200px;
+  margin-right: 200px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  font-size: 1.3em;
+}
+
+header li{
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+li {
+  margin-left: 200px;
+  margin-right: 200px;
+}
+
+h2{
+  text-align: center;
+  font-size: 2.3em;
+}
+
+h1{
+  font-size: 2.7em;
+  padding: 0;
+  position: relative;
+  top: -150px;
+  text-decoration: underline;
+  text-decoration-color: #87cfcd;
+}
+
+.bold_text{
+  font-weight: bold;
+}
+
+figure{
+  width: 25%;
+  float: left;
+  margin-left: 38px;
+  text-align: center;
+  padding: 20px ;
+}
+
+figcaption{
+  font-size: 14pt;
+}
+
+.Intro {
+  margin-bottom: 0;
+  padding : 0;
+}
+
+header li a{
+  text-decoration: none;
+}
+
+.contact div{
+  height: 300px;
+}
+
+label{
+  display: block;
+
+}
+
+input, label{
+  margin: 1rem;
+}
