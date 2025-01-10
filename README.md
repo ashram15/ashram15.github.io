@@ -1,6 +1,7 @@
 # TestTrack Website
 A Covid-19 Testing Tracker Website.
 By Aishwarya Ramesh and Aarushi Ramesh
+![Test Track Main Page](/TestTrackMainPage.jpg)
 
 **Inspiration**
 With the COVID-19 pandemic increasing in scale, testing has become extremely crucial in containing and tracking this virus. Recently, there has been a significant demand in testing and it has become extremely hard for people to find testing centers and efficiently get themselves tested. After reading these headlines every day, we wanted to provide a way to make it easier for the public to locate the closest COVID-19 centers and get tested right away in an efficient manner.
