@@ -2,7 +2,7 @@
 <html>
   <head>
     <title> Test Track </title>
-    <link rel = "stylesheet" type = "text/css" href = "/css/main.css">
+    <link rel = "stylesheet" type = "text/css" href = "main.css">
     <script src="https://cdn.jsdelivr.net/scrollreveal.js/3.3.1/scrollreveal.min.js">
     </script>
     <meta name = "viewport" content = "width = device = width, inital-scale = 1">
@@ -36,7 +36,23 @@
         <section id = "Intro">
           <div class = "Intro" >
             <img src = "TestTrack1.png" width=800 height=800 class = "profile-img">
-            <h1 class = "maintitle"> Welcome to TestTrack,  your COVID-19 testing center finder!</h1>
+			<h1 id="typewriter-text"></h1>
+            <!--<h1 class = "maintitle"> Welcome to TestTrack,  your COVID-19 testing center finder!</h1>-->
+			<script>
+				const text = "Welcome to TestTrack,  your COVID-19 testing center finder!";
+				const speed = 40; // Adjust typing speed in milliseconds
+				let index = 0;
+
+				function typeWriter() {
+				    if (index < text.length) {
+				        document.getElementById("typewriter-text").innerHTML += text.charAt(index);
+				        index++;
+				        setTimeout(typeWriter, speed);
+				    }
+				}
+
+				window.onload = typeWriter;
+			</script>
           </div>
         </section>
         <section id = "motivation">
