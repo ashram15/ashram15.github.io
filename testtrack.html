@@ -72,21 +72,21 @@
           <div class = "steps" >
             <h2 class= bold_text> The TestTrack Process: </h2>
             <figure class = "item">
-              <img src= "Step1.png" width=320 height= 300 class= "img1" >
+              <img src= "Step1.png" width=240 height= 220 class= "img1" >
               <figcaption>
                 Step 1:<br>
                 On the map below, enter your zip-code or closest city in the search bar.
               </figcaption>
             </figure>
             <figure>
-              <img src= "Step2.png" width= 320 height = 300 >
+              <img src= "Step2.png" width= 240 height = 220 >
               <figcaption>
                 Step 2: <br>
-                Choose the closest center and observe the wait times for each testing center and choose the one that suits you.
+                Choose the closest center and observe the wait times for each testing center and choose the one that suits you.
               </figcaption>
             </figure>
             <figure>
-              <img src = "Step3.png" width = 320 height = 300>
+              <img src = "Step3.png" width = 240 height = 220>
               <figcaption>
                 Step 3: <br>
                 Get your test done!
@@ -95,13 +95,13 @@
           </div>
         </section>
 
-        <section id = "site">
+        <!--<section id = "site">
           <div class = "topnav" >
             <h2> Type your closest city or zipcode: </h2>
 
-            <h4> TestTrack has used the Google Maps APIs to call certain functions and makes this possible!!</h4>
+            <h4> TestTrack has used the Google Maps APIs to call certain functions and makes this possible!!</h4>-->
             <!--Test Track Map goes here -->
-            <div id="testtrackmap"></div>
+           <!-- <div id="testtrackmap"></div>
             
            
             <script>
@@ -109,9 +109,9 @@
             function testMap() {
                //Latitude Longitude of the USA
               var usa = {lat: 38.5, lng: -98};
-              var testmap = new google.maps.Map(document.getElementById("testtrackmap"), {zoom: 5, center: usa});
-              //<!--Calling the Geoencoding API - learned from Google Developers API Page -->
-              var geocoder = new google.maps.Geocoder();
+              var testmap = new google.maps.Map(document.getElementById("testtrackmap"), {zoom: 5, center: usa});-->
+              <!--Calling the Geoencoding API - learned from Google Developers API Page -->
+              <!--var geocoder = new google.maps.Geocoder();
               document.getElementById("geosubmit").addEventListener("click", function() {
                   geocodeLocation(geocoder, testmap);
                });
@@ -194,21 +194,117 @@
 
            <script async defer
                src= "https://maps.googleapis.com/maps/api/js?key=AIzaSyBwz4f8LJtQ1XmNxgn688QpvPjBoU9bO5U&callback=testMap&libraries=places">
-            </script> 
+            </script> -->
             
             <!--<script async
                  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCbjM6KN1VxoY88BPO2tFf3nhheDCyP9Tc&callback=initMap">
             </script> -->
             
             
-            <div id = "textboxinput">
+            <!--<div id = "textboxinput">
               <input id="location" type="textbox" value="USA" />
               <input id="geosubmit" type="button" value="Enter your address" />
             </div>
 
          </div>
 
-        </section>
+        </section>-->
+				
+		<section id="site">
+		    <div class="topnav">
+		        <h2>Type your closest city or zipcode:</h2>
+		        <h4>TestTrack has used the Google Maps APIs to call certain functions and makes this possible!!</h4>
+
+		        <!-- Test Track Map goes here -->
+		        <div id="testtrackmap" style="height: 500px; width: 100%;"></div>
+
+		        <div id="textboxinput">
+		            <input id="location" type="textbox" value="USA" />
+		            <input id="geosubmit" type="button" value="Enter your address" />
+		        </div>
+
+		        <script>
+		            function testMap() {
+		                // Latitude Longitude of the USA
+		                var usa = { lat: 38.5, lng: -98 };
+		                var testmap = new google.maps.Map(document.getElementById("testtrackmap"), { zoom: 5, center: usa });
+
+		                // Initialize Geocoder
+		                var geocoder = new google.maps.Geocoder();
+
+		                // Attach event listener to the button
+		                document.getElementById("geosubmit").addEventListener("click", function () {
+		                    geocodeLocation(geocoder, testmap);
+		                });
+
+		                // Initialize InfoWindow
+		                var infowindow = new google.maps.InfoWindow();
+
+		                // Places API query for COVID-19 testing centers
+		                var covidquery = {
+		                    location: usa,
+		                    radius: '50000',
+		                    query: 'COVID-19 testing center'
+		                };
+
+		                // Search for testing centers
+		                var service = new google.maps.places.PlacesService(testmap);
+		                var bounds = new google.maps.LatLngBounds();
+
+		                service.textSearch(covidquery, function (results, status) {
+		                    if (status === google.maps.places.PlacesServiceStatus.OK) {
+		                        for (var i = 0; i < results.length; i++) {
+		                            var marker = new google.maps.Marker({
+		                                map: testmap,
+		                                position: results[i].geometry.location
+		                            });
+
+		                            // Extend map bounds to include marker locations
+		                            bounds.extend(results[i].geometry.location);
+
+		                            // Add click listener to markers
+		                            google.maps.event.addListener(marker, "click", (function (marker, i) {
+		                                return function () {
+		                                    infowindow.setContent(
+		                                        "<strong>" + results[i].name + "</strong><br>" +
+		                                        results[i].formatted_address
+		                                    );
+		                                    infowindow.open(testmap, marker);
+		                                };
+		                            })(marker, i));
+		                        }
+		                        // Fit the map to the bounds of the search results
+		                        testmap.fitBounds(bounds);
+		                    } else {
+		                        alert("Sorry, but the Places Search API was not successful because of: " + status);
+		                    }
+		                });
+		            }
+
+		            // Geocode the user input and center the map
+		            function geocodeLocation(geocoder, resultsMap) {
+		                var address = document.getElementById("location").value;
+		                geocoder.geocode({ address: address }, function (results, status) {
+		                    if (status === "OK") {
+		                        resultsMap.setCenter(results[0].geometry.location);
+		                        var marker = new google.maps.Marker({
+		                            map: resultsMap,
+		                            position: results[0].geometry.location
+		                        });
+		                    } else {
+		                        alert("Sorry, but the geocoding was not successful because of: " + status);
+		                    }
+		                });
+		            }
+		        </script>
+
+		        <!-- Load the Google Maps API -->
+		        <script async defer
+		            src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=testMap&libraries=places">
+		        </script>
+		    </div>
+		</section>
+		
 
         <section id = "Contact">
           <div class = "contact">
