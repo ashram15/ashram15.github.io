@@ -1,6 +1,10 @@
 # TestTrack Website
 A Covid-19 Testing Tracker Website.
 By Aishwarya Ramesh and Aarushi Ramesh
+
+## Won "Best Beginner Hack" in Bay Area Hacks 2020: 
+<a href="https://devpost.com/software/testtrack">Hackathon Link</a>
+
 ![Test Track Main Page](/TestTrackMainPage.jpg)
 
 **Inspiration**
