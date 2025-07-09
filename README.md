@@ -3,7 +3,7 @@ A Covid-19 Testing Tracker Website created for Bay Area Hacks.
 By Aishwarya Ramesh and Aarushi Ramesh
 
 ## Won "Best Beginner Hack" in Bay Area Hacks 2020: 
-**⚠️UPDATE 2025: The Google Maps API used has since expired or changed, so some functionality may be broken ⚠️**  
+**⚠️UPDATE 2025: The Google Maps API used for this project has since expired or changed, so some functionality may be broken ⚠️**  
 <a href="https://devpost.com/software/testtrack">Hackathon Link</a>
 
 ![Test Track Main Page](/TestTrackMainPage.jpg)
