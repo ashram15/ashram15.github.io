@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PersonalPortfolio</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <main id="main">
+        <nav id="navbar">
+            <header>Aishwarya Ramesh</header>
+            <h2>CS student at UT Dallas</h2>
+            <a class="nav-link" href="#about">About Me</a>
+            <a class="nav-link" href="#projects">Projects</a>
+            <a class="nav-link" href="#contact">Contact</a>
+        </nav>
+
+        <section id="welcome">
+            <h1>Hi there! I'm Aishwarya Ramesh.</h1>
+            <p>Welcome to my personal portfolio website!</p>
+        </section>
+
+        <section id="about">
+            <h2>About Me</h2>
+            <p>I am a Computer Science student with a love for creating innovative solutions. I specialize in web
+                development and have
+                experience with Python, Java, C/C++, Javascript. I have also used other frameworks/libraries like React,
+                Node.js, FastAPI, and Flask.
+            </p>
+        </section>
+
+        <section id="projects" class="tiles-container">
+            <h2>Projects</h2>
+            <div class="project-title">
+                <h2><a href="https://synopspy.onrender.com">SynopSpy</a></h2>
+                <p>SynopSpy is a full stack web application that help users
+                    understand and assess complex documents. Some examples of documents
+                    SynopSpy helps analyze are legal fine print, court documents, or terms
+                    and conditions. SynopSpy uses NLP(Natural Language Processing) to summarize
+                    and analyze these documents, flag risky language, and assign a document
+                    safety rating.
+                    <li>
+                        Developed a RESTful API with FastAPI, connected to a React
+                        frontend via JavaScript.
+                    </li>
+                    <li>
+                        Integrates a React framework with a FastAPI/Python backend.
+                    </li>
+
+                </p>
+                <img src="assets/synopspy_demo.gif" alt="SynopSpy demo" width="600" height="400">
+            </div>
+            <div class="project-title">
+                <h2><a href="https://github.com/ashram15/ashram15.github.io">TestTrack</a></h2>
+                <p>TestTrack is a website that will help people keep track of the coronavirus
+                    testing locations around their area. The website will prompt the user to
+                    type in their zip code or address and will call certain Maps API’s
+                    to locate the closest COVID-19 testing locations. We will also specify
+                    the wait time allocated with each close testing location in order for them
+                    to optimize their time and get tested as soon as possible.
+                </p>
+                <img src="assets/TestTrack.png" alt="TestTrack demo" width="600" height="400">
+            </div>
+            <div class="project-title">
+                <h2><a href="https://github.com/ashram15/sorting_algorithms">Sorting Algorithm Visualizer</a></h2>
+                <p>This project implements and benchmarks five common sorting algorithms in C++.
+                    The algorithms implemented are Bubble Sort, Selection Sort, Insertion Sort, Quick Sort, and Merge
+                    Sort.
+                    The program then measures the time taken by each algorithm to sort these arrays and writes these
+                    results
+                    to a CSV file.
+                    A python script (plot.py) then reads the CSV data and visualizes the performance of each sorting
+                    algorithm using
+                    Matplotlib. The resulting plot shows the sorting time(in seconds and in log scale) as a function of
+                    array size (n).
+                </p>
+                <img src="assets/demo.png" alt="Sorting Algorithm Visualizer demo" width="600" height="400">
+            </div>
+
+
+        </section>
+
+        <section id="contact">
+            <h2>Contact Me</h2>
+            <a href="mailto:ashram1015@gmail.com">
+                <img src="assets/email.jpg" alt="Email icon" width="50" height="50 ">
+            </a>
+            <a href="https://www.linkedin.com/in/aishwarya-rame/">
+                <img src="assets/linkedin.jpg" alt="LinkedIn icon" width="50" height="50">
+            </a>
+            <!-- <a href="https://github.com/ashram15">
+                <img src="assets/github.png" alt="GitHub icon" width="50" height="50">
+            </a> -->
+        </section>
+
+    </main>
+
+
+
+
+</body>
+
+</html>
