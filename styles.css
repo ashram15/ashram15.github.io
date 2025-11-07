@@ -1,11 +1,26 @@
 body {
-    background-color: white;
+    background: linear-gradient(135deg, #e8f5fe 0%, #d4e9f7 100%);
+    color: #2c3e50;
+    position: relative;
+    overflow-x: hidden;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background:
+        radial-gradient(circle at 20% 20%, rgba(100, 181, 246, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(144, 202, 249, 0.1) 0%, transparent 50%);
+    pointer-events: none;
 }
 
 header {
     font-weight: bold;
     font-size: 30px;
-    background-color: lightgreen;
 }
 
 main {
@@ -25,16 +40,32 @@ p {
 #navbar {
     position: fixed;
     top: 0;
+    background: rgba(255, 255, 255, 0.8);
+    color: #2c3e50;
     left: 0;
     height: 100%;
-    width: 300px;
+    width: auto;
     padding: 30px;
+    backdrop-filter: blur(10px);
+    border-right: 1px solid rgba(100, 181, 246, 0.2);
+    box-shadow: 5px 0 15px rgba(100, 181, 246, 0.1);
 }
 
 .project-image {
     max-width: 100%;
     width: 600px;
     height: 400px;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    filter: brightness(0.9);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.project-image:hover {
+    transform: scale(1.02);
+    filter: brightness(1.1);
+    box-shadow: 0 8px 25px rgba(100, 181, 246, 0.2),
+        0 0 20px rgba(100, 181, 246, 0.3);
 }
 
 
@@ -44,6 +75,61 @@ nav a {
     color: inherit;
     font-size: 25px;
     text-decoration: none;
+    transition: all 0.3s ease;
+    position: relative;
+    padding: 5px 0;
+}
+
+nav a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, rgba(100, 181, 246, 0.8), transparent);
+    transition: width 0.3s ease;
+}
+
+nav a:hover {
+    color: #1976d2;
+    transform: translateX(5px);
+}
+
+nav a:hover::after {
+    width: 100%;
+}
+
+.project-title {
+    background: rgba(208, 228, 247, 0.8);
+    border-radius: 15px;
+    padding: 25px;
+    margin-bottom: 30px;
+    box-shadow: 0 4px 15px rgba(100, 181, 246, 0.15);
+    border: 1px solid rgba(100, 181, 246, 0.2);
+    backdrop-filter: blur(5px);
+    transition: all 0.3s ease;
+}
+
+.project-title:hover {
+    background: rgba(196, 221, 245, 0.9);
+    transform: translateY(-5px);
+    box-shadow: 0 6px 20px rgba(100, 181, 246, 0.2);
+}
+
+.project-title h2 {
+    color: #1565c0;
+    margin-bottom: 15px;
+}
+
+.project-title a {
+    color: #1976d2;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.project-title a:hover {
+    color: #1565c0;
 }
 
 section li {
