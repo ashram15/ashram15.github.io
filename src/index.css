@@ -1,0 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Shrikhand&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom gradient utilities */
+.bg-gradient-radial {
+  background: radial-gradient(circle, var(--tw-gradient-stops));
+}
+
+/* Basic body styles */
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, sans-serif;
+}
