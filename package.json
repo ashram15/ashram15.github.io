@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "deploy": "npm run build && gh-pages -d out"
+    "deploy": "npm run build && gh-pages -d out -t"
   },
   "dependencies": {
     "lucide-react": "^0.562.0",

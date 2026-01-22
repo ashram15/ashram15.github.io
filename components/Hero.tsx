@@ -586,7 +586,8 @@ export default function App() {
                         transition={{ duration: 0.8, delay: 0.2 }}
                         viewport={{ once: true }}
                     >
-                        I'm always open to discussing new opportunities and interesting projects.
+                        I'm currently open to internship opportunities for Summer 2026! Feel free to reach out to me via email or connect with me on LinkedIn and GitHub.
+
                     </motion.p>
 
                     <motion.div
