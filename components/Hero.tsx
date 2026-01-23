@@ -224,7 +224,7 @@ export default function App() {
                                 textShadow: '0 0 15px rgba(253, 224, 71, 0.4), 0 0 30px rgba(253, 224, 71, 0.2)'
                             }}
                         >
-                            CS @ The University of Texas at Dallas
+                            CS @ UT Dallas
                         </h2>
                         <h2 className="text-white text-1xl text-center tracking-wide relative"
                             style={{
@@ -232,7 +232,7 @@ export default function App() {
                                 textShadow: '0 0 15px rgba(253, 224, 71, 0.4), 0 0 30px rgba(253, 224, 71, 0.2)'
                             }}
                         >
-                            Python, Java, C++, JavaScript | NLP | Full Stack Development | Cloud Computing
+                            Python, Java, C++, JavaScript | NLP | Full Stack | Cloud Computing
                         </h2>
                     </div>
                 </div>
