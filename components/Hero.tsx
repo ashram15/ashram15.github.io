@@ -396,16 +396,13 @@ export default function App() {
                             </div>
 
                             <div className="flex justify-center">
-                                <video
-                                    src="/SHM_demo.mp4"
-                                    controls
-                                    autoPlay
-                                    loop
-                                    muted
-                                    className="rounded-lg border border-slate-600 max-w-full h-auto shadow-lg"
-                                >
-                                    Your browser does not support the video tag.
-                                </video>
+                                <iframe
+                                    className="rounded-lg border border-slate-600 shadow-lg w-full aspect-video"
+                                    src="https://www.youtube.com/embed/eHVEebnDgbk"
+                                    title="System Health Monitor Demo"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                    allowFullScreen
+                                />
                             </div>
                         </div>
                     </motion.div>
