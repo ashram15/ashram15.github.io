@@ -4,7 +4,6 @@ import { useState, useEffect } from 'react';
 import { motion } from 'motion/react';
 import { Lightbulb, Mail, Github, Linkedin } from 'lucide-react';
 import synopspyDemo from '@/assets/synopspy_demo-B5uEZ3cv.gif';
-import systemMonitorImage from '@/assets/system_health_monitor-JSwwxAoh.png';
 import sortingVisualizerImage from '@/assets/demo-BgwH8UuU.png';
 import testTrackImage from '@/assets/TestTrack-BiYzRBBc.png';
 
@@ -362,7 +361,7 @@ export default function App() {
                     >
                         <h3 className="text-2xl font-bold text-white mb-4">
                             <a
-                                href="https://github.com/ashram15/system-monitor-sensor"
+                                href="https://github.com/ashram15/system_health_monitor"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="hover:text-yellow-300 transition-colors"
@@ -397,11 +396,16 @@ export default function App() {
                             </div>
 
                             <div className="flex justify-center">
-                                <img
-                                    src={systemMonitorImage.src}
-                                    alt="System Monitor Sensor demo"
+                                <video
+                                    src="/SHM_demo.mp4"
+                                    controls
+                                    autoPlay
+                                    loop
+                                    muted
                                     className="rounded-lg border border-slate-600 max-w-full h-auto shadow-lg"
-                                />
+                                >
+                                    Your browser does not support the video tag.
+                                </video>
                             </div>
                         </div>
                     </motion.div>
