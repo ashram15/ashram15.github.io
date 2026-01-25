@@ -366,7 +366,7 @@ export default function App() {
                                 rel="noopener noreferrer"
                                 className="hover:text-yellow-300 transition-colors"
                             >
-                                System Monitor Sensor
+                                System Health Monitor
                             </a>
                         </h3>
 
