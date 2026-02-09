@@ -6,6 +6,7 @@ import { Lightbulb, Mail, Github, Linkedin } from 'lucide-react';
 import synopspyDemo from '@/assets/synopspy_demo-B5uEZ3cv.gif';
 import sortingVisualizerImage from '@/assets/demo-BgwH8UuU.png';
 import testTrackImage from '@/assets/TestTrack-BiYzRBBc.png';
+import HFOMDemo from '@/assets/HFOM_demo.gif';
 
 // Generate random star positions
 const generateStars = (count: number) => {
@@ -371,9 +372,11 @@ export default function App() {
                         </h3>
 
                         <p className="text-gray-300 text-lg mb-6 leading-relaxed">
-                            This project is a system monitoring tool built using Java and Spring Boot. It collects real-time
+                            This project is a distributed system monitor built using Java and Spring Boot. It collects real-time
                             data on CPU usage, memory consumption, disk activity, and network statistics, providing users
-                            with insights into their system's performance.
+                            with insights into their system's performance. It uses a Client-Server architecture, where 'Agents' collect metrics
+                            and send them to a central 'Server', the Spring Boot backend. The server processes and stores the data in a PostgreSQL database,
+                            and a web-based dashboard built with pgAdmin allows users to visualize the collected metrics in real-time.
                         </p>
 
                         <div className="grid md:grid-cols-2 gap-8 items-start">
@@ -382,15 +385,22 @@ export default function App() {
                                 <ul className="space-y-2 text-gray-300">
                                     <li className="flex items-start gap-2">
                                         <span className="text-yellow-300 mt-1">•</span>
-                                        Developed RESTful APIs using Spring Boot to fetch system metrics.
+                                        Developed a REST API using Spring Boot to fetch system metrics using the Oshi Java Library.
                                     </li>
                                     <li className="flex items-start gap-2">
                                         <span className="text-yellow-300 mt-1">•</span>
-                                        Connects to a PostgreSQL database for efficient data storage and retrieval.
+                                        Stores metrics in a PostgreSQL database for structured data storage and efficient retrieval.
                                     </li>
                                     <li className="flex items-start gap-2">
                                         <span className="text-yellow-300 mt-1">•</span>
                                         Implemented a web-based dashboard using pgAdmin for real-time data visualization.
+                                    </li>
+                                    <li className="flex items-start gap-2">
+                                        <span className="text-yellow-50 mt-1">•</span>
+                                        <div>
+                                            <strong>Why I built this?</strong> I wanted to bridge the gap between academic Java and Enterprise Java. I specifically built this to learn about
+                                            Dependency Injections, REST APIs, and how Spring Boot manages configuration.
+                                        </div>
                                     </li>
                                 </ul>
                             </div>
@@ -407,12 +417,68 @@ export default function App() {
                         </div>
                     </motion.div>
 
+                    {/* High Frequency Order Matching Project */}
+                    <motion.div
+                        className="bg-slate-700/50 backdrop-blur-sm rounded-xl p-8 border border-slate-600/50 hover:border-yellow-300/30 transition-colors mt-8"
+                        initial={{ opacity: 0, y: 50 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.8, delay: 0.6 }}
+                        viewport={{ once: true }}
+                    >
+                        <h3 className="text-2xl font-bold text-white mb-4">
+                            High Frequency Order Matching Engine
+                        </h3>
+
+                        <p className="text-gray-300 text-lg mb-6 leading-relaxed">
+                            This engine was built as a low-latency Limit Order Book in C++. It simulates a stock exchange matching engine
+                            using Price-Time Priority logic to match Buy and Sell orders efficiently.
+                        </p>
+
+                        <div className="grid md:grid-cols-2 gap-8 items-start">
+                            <div>
+                                <h4 className="text-lg font-semibold text-yellow-300 mb-3">Key Features:</h4>
+                                <ul className="space-y-2 text-gray-300">
+                                    <li className="flex items-start gap-2">
+                                        <span className="text-yellow-300 mt-1">•</span>
+                                        Uses Red-Black Trees (std::map) to maintain sorted order of buy and sell orders (automatically sorted in O(log n) time). This allows for O(1) time complexity for retrieving the best bid and ask prices, which is crucial for high-frequency trading.
+                                    </li>
+
+                                    <li className="flex items-start gap-2">
+                                        <span className="text-yellow-300 mt-1">•</span>
+                                        Implements Price-Time Priority for order matching. Orders are matched based on price first (best price gets priority), and if prices are the same, then the order that arrived first gets priority. Lowest asking price is matched with the highest bid price. This is a standard practice in financial markets to ensure fairness and efficiency.
+                                    </li>
+
+                                    <li className="flex items-start gap-2">
+                                        <span className="text-yellow-300 mt-1">•</span>
+                                        Uses a TCP socket server as the Network Interface to receive incoming orders. TCP is chosen because it is faster for raw order data.
+                                    </li>
+
+                                    <li className="flex items-start gap-2">
+                                        <span className="text-yellow-50 mt-1">•</span>
+                                        <div>
+                                            <strong>Why I built this?</strong> I wanted to understand the mechanics of a high frequency market. I chose C++ for its performance benefits and
+                                            because I needed deterministic memory management (no Garbage Collector pauses) to handle high-frequency data.
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div className="flex justify-center">
+                                <img
+                                    src={HFOMDemo.src}
+                                    alt="High Frequency Order Matching Engine demo"
+                                    className="rounded-lg border border-slate-600 max-w-full h-auto shadow-lg"
+                                />
+                            </div>
+                        </div>
+                    </motion.div>
+
                     {/* Sorting Algorithm Visualizer Project */}
                     <motion.div
                         className="bg-slate-700/50 backdrop-blur-sm rounded-xl p-8 border border-slate-600/50 hover:border-yellow-300/30 transition-colors mt-8"
                         initial={{ opacity: 0, y: 50 }}
                         whileInView={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.8, delay: 0.4 }}
+                        transition={{ duration: 0.8, delay: 0.8 }}
                         viewport={{ once: true }}
                     >
                         <h3 className="text-2xl font-bold text-white mb-4">
@@ -462,112 +528,64 @@ export default function App() {
                             </div>
                         </div>
                     </motion.div>
-
-                    {/* TestTrack Project */}
-                    <motion.div
-                        className="bg-slate-700/50 backdrop-blur-sm rounded-xl p-8 border border-slate-600/50 hover:border-yellow-300/30 transition-colors mt-8"
-                        initial={{ opacity: 0, y: 50 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.8, delay: 0.8 }}
-                        viewport={{ once: true }}
-                    >
-                        <h3 className="text-2xl font-bold text-white mb-4">
-                            TestTrack
-                        </h3>
-
-                        <p className="text-gray-300 text-lg mb-6 leading-relaxed">
-                            TestTrack is a website that helps people keep track of coronavirus testing locations around their area.
-                            The website prompts users to type in their zip code or address and calls Maps APIs to locate the closest
-                            COVID-19 testing locations. It also specifies the wait time allocated with each nearby testing location
-                            to help users optimize their time and get tested as soon as possible.
-                        </p>
-
-                        <div className="grid md:grid-cols-2 gap-8 items-start">
-                            <div>
-                                <h4 className="text-lg font-semibold text-yellow-300 mb-3">Key Features:</h4>
-                                <ul className="space-y-2 text-gray-300">
-                                    <li className="flex items-start gap-2">
-                                        <span className="text-yellow-300 mt-1">•</span>
-                                        Location-based search using zip codes or addresses
-                                    </li>
-                                    <li className="flex items-start gap-2">
-                                        <span className="text-yellow-300 mt-1">•</span>
-                                        Integration with Maps APIs for accurate location services
-                                    </li>
-                                    <li className="flex items-start gap-2">
-                                        <span className="text-yellow-300 mt-1">•</span>
-                                        Real-time wait time tracking for testing locations
-                                    </li>
-                                    <li className="flex items-start gap-2">
-                                        <span className="text-yellow-300 mt-1">•</span>
-                                        User-friendly interface for quick testing site discovery
-                                    </li>
-                                </ul>
-                            </div>
-
-                            <div className="flex justify-center">
-                                <img
-                                    src={testTrackImage.src}
-                                    alt="TestTrack demo"
-                                    className="rounded-lg border border-slate-600 max-w-full h-auto shadow-lg"
-                                />
-                            </div>
-                        </div>
-                    </motion.div>
                 </div>
-            </section>
+            </section >
 
             {/* Contact Section */}
-            <section id="contact" className="min-h-screen bg-slate-900 py-20 px-8 relative overflow-hidden">
+            < section id="contact" className="min-h-screen bg-slate-900 py-20 px-8 relative overflow-hidden" >
                 {/* Stars background for contact section */}
-                {stars.map((star) => (
-                    <motion.div
-                        key={`contact-star-${star.id}`}
-                        className="absolute rounded-full bg-white"
-                        style={{
-                            left: `${star.x}%`,
-                            top: `${star.y}%`,
-                            width: `${star.size}px`,
-                            height: `${star.size}px`,
-                        }}
-                        animate={{
-                            opacity: [0.2, 1, 0.2],
-                            scale: [1, 1.5, 1]
-                        }}
-                        transition={{
-                            duration: star.duration,
-                            repeat: Infinity,
-                            delay: star.delay,
-                            ease: "easeInOut"
-                        }}
-                    />
-                ))}
+                {
+                    stars.map((star) => (
+                        <motion.div
+                            key={`contact-star-${star.id}`}
+                            className="absolute rounded-full bg-white"
+                            style={{
+                                left: `${star.x}%`,
+                                top: `${star.y}%`,
+                                width: `${star.size}px`,
+                                height: `${star.size}px`,
+                            }}
+                            animate={{
+                                opacity: [0.2, 1, 0.2],
+                                scale: [1, 1.5, 1]
+                            }}
+                            transition={{
+                                duration: star.duration,
+                                repeat: Infinity,
+                                delay: star.delay,
+                                ease: "easeInOut"
+                            }}
+                        />
+                    ))
+                }
 
                 {/* Floating light particles for contact section */}
-                {particles.map((particle) => (
-                    <motion.div
-                        key={`contact-particle-${particle.id}`}
-                        className="absolute rounded-full bg-yellow-300"
-                        style={{
-                            left: `50%`,
-                            top: `50%`,
-                            translateX: `${particle.x}px`,
-                            translateY: `${particle.y}px`,
-                            width: `${particle.size}px`,
-                            height: `${particle.size}px`,
-                        }}
-                        animate={{
-                            opacity: [0.5, 1, 0.5],
-                            scale: [1, 1.5, 1]
-                        }}
-                        transition={{
-                            duration: particle.duration,
-                            repeat: Infinity,
-                            delay: particle.delay,
-                            ease: "easeInOut"
-                        }}
-                    />
-                ))}
+                {
+                    particles.map((particle) => (
+                        <motion.div
+                            key={`contact-particle-${particle.id}`}
+                            className="absolute rounded-full bg-yellow-300"
+                            style={{
+                                left: `50%`,
+                                top: `50%`,
+                                translateX: `${particle.x}px`,
+                                translateY: `${particle.y}px`,
+                                width: `${particle.size}px`,
+                                height: `${particle.size}px`,
+                            }}
+                            animate={{
+                                opacity: [0.5, 1, 0.5],
+                                scale: [1, 1.5, 1]
+                            }}
+                            transition={{
+                                duration: particle.duration,
+                                repeat: Infinity,
+                                delay: particle.delay,
+                                ease: "easeInOut"
+                            }}
+                        />
+                    ))
+                }
 
                 <div className="max-w-4xl mx-auto relative z-10 text-center">
                     <motion.h2
@@ -636,7 +654,7 @@ export default function App() {
                         </a>
                     </motion.div>
                 </div>
-            </section>
-        </div>
+            </section >
+        </div >
     );
 }
