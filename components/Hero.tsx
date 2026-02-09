@@ -426,7 +426,15 @@ export default function App() {
                         viewport={{ once: true }}
                     >
                         <h3 className="text-2xl font-bold text-white mb-4">
-                            High Frequency Order Matching Engine
+                            <a href="https://github.com/ashram15/high_frequency_order_matching"
+                                target="blank"
+                                rel="noopener noreferrer"
+                                className="hover:text-yellow-300 transition-colors"
+                            >
+
+                                High Frequency Order Matching Engine
+                            </a>
+
                         </h3>
 
                         <p className="text-gray-300 text-lg mb-6 leading-relaxed">
