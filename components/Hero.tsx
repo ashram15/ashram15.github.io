@@ -121,10 +121,13 @@ export default function App() {
                         </h3>
 
                         <p className="text-gray-300 text-lg mb-6 leading-relaxed">
-                            SynopSpy is a full stack web application that helps users understand and assess complex documents.
-                            Some examples of documents SynopSpy helps analyze are legal fine print, court documents, or terms
-                            and conditions. SynopSpy uses NLP (Natural Language Processing) to summarize and analyze these
-                            documents, flag risky language, and assign a document safety rating.
+                            SynopSpy is a full stack web application that help users
+                            understand and assess complex documents. Some examples of
+                            documents SynopSpy helps analyze are legal fine print,
+                            court documents, or terms and conditions. SynopSpy uses
+                            NLP (Natural Language Processing) to summarize and analyze
+                            these documents, flag risky language, and assign a document
+                            safety rating.
                         </p>
 
                         <div className="grid md:grid-cols-2 gap-8 items-start">
@@ -133,12 +136,27 @@ export default function App() {
                                 <ul className="space-y-2 text-gray-300">
                                     <li className="flex items-start gap-2">
                                         <span className="text-yellow-300 mt-1">•</span>
+                                        Leverages Google's Gemini API to perform complex NLP tasks, including large document summarization and content risk analysis. Detects complex legal language and highlights sections in the document that require increased oversight.
+                                    </li>
+                                    <li className="flex items-start gap-2">
+                                        <span className="text-yellow-300 mt-1">•</span>
                                         Developed a RESTful API with FastAPI, connected to a React frontend via JavaScript.
                                     </li>
                                     <li className="flex items-start gap-2">
                                         <span className="text-yellow-300 mt-1">•</span>
-                                        Integrates a React framework with a FastAPI/Python backend.
+                                        Integrates a secure login using Auth0 to ensure that document uploads are tied to individual users.
                                     </li>
+                                    <li className="flex items-start gap-2">
+                                        <span className="text-yellow-300 mt-1">•</span>
+                                        Stores and retrieves a user's previous document analysis using MongoDB NoSQL databases, allowing for easy comparison and review.
+                                    </li>
+                                    <li className="flex items-start gap-2">
+                                        <span className="text-yellow-50 mt-1">•</span>
+                                        <div>
+                                            <strong>Why I built this?</strong> I built this project to create a tool that can help people navigate complex documents. I wanted to learn how to integrate a powerful NLP API into a full stack application, and to understand the challenges of handling large documents and providing meaningful insights from them.
+                                        </div>
+                                    </li>
+
                                 </ul>
                             </div>
 
