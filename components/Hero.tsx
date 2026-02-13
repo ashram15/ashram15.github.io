@@ -2,52 +2,14 @@
 
 import { useState, useEffect } from 'react';
 import { motion } from 'motion/react';
-import { Lightbulb, Mail, Github, Linkedin } from 'lucide-react';
+import { Mail, Github, Linkedin } from 'lucide-react';
 import synopspyDemo from '@/assets/synopspy_demo-B5uEZ3cv.gif';
 import sortingVisualizerImage from '@/assets/demo-BgwH8UuU.png';
 import testTrackImage from '@/assets/TestTrack-BiYzRBBc.png';
 import HFOMDemo from '@/assets/HFOM_demo.gif';
-
-// Generate random star positions
-const generateStars = (count: number) => {
-    const stars = [];
-    for (let i = 0; i < count; i++) {
-        stars.push({
-            id: i,
-            x: Math.random() * 100, // percentage
-            y: Math.random() * 100, // percentage
-            size: Math.random() * 2 + 1, // 1-3px
-            delay: Math.random() * 3, // 0-3s delay
-            duration: Math.random() * 2 + 2 // 2-4s duration
-        });
-    }
-    return stars;
-};
-
-// Generate floating light particles
-const generateParticles = (count: number) => {
-    const particles = [];
-    for (let i = 0; i < count; i++) {
-        particles.push({
-            id: i,
-            x: Math.random() * 600 - 300, // -300 to 300
-            y: Math.random() * 800, // 0 to 800
-            size: Math.random() * 3 + 1, // 1-4px
-            delay: Math.random() * 2,
-            duration: Math.random() * 3 + 3 // 3-6s
-        });
-    }
-    return particles;
-};
+import LightPillar from './LightPillar';
 
 export default function App() {
-    const [stars, setStars] = useState<Array<{ id: number; x: number; y: number; size: number; delay: number; duration: number }>>([]);
-    const [particles, setParticles] = useState<Array<{ id: number; x: number; y: number; size: number; delay: number; duration: number }>>([]);
-
-    useEffect(() => {
-        setStars(generateStars(150));
-        setParticles(generateParticles(30));
-    }, []);
     return (
         <div className="min-h-screen bg-slate-900 relative">
             {/* Header */}
@@ -72,135 +34,23 @@ export default function App() {
 
             {/* Hero Section */}
             <div className="relative w-full h-screen flex items-start justify-center overflow-hidden">
-                {/* Stars background */}
-                {stars.map((star) => (
-                    <motion.div
-                        key={star.id}
-                        className="absolute rounded-full bg-white"
-                        style={{
-                            left: `${star.x}%`,
-                            top: `${star.y}%`,
-                            width: `${star.size}px`,
-                            height: `${star.size}px`,
-                        }}
-                        animate={{
-                            opacity: [0.2, 1, 0.2],
-                            scale: [1, 1.5, 1]
-                        }}
-                        transition={{
-                            duration: star.duration,
-                            repeat: Infinity,
-                            delay: star.delay,
-                            ease: "easeInOut"
-                        }}
+                <div className="relative w-full bg-slate-900 h-screen">
+                    <LightPillar
+                        topColor="#5227FF"
+                        bottomColor="#b18cfe"
+                        intensity={0.9}
+                        rotationSpeed={0.5}
+                        glowAmount={0.002}
+                        pillarWidth={3}
+                        pillarHeight={0.4}
+                        noiseIntensity={0.5}
+                        pillarRotation={25}
+                        interactive={false}
+                        mixBlendMode="screen"
+                        quality="high"
                     />
-                ))}
-
-                {/* Floating light particles */}
-                {particles.map((particle) => (
-                    <motion.div
-                        key={particle.id}
-                        className="absolute rounded-full bg-yellow-300"
-                        style={{
-                            left: `50%`,
-                            top: `50%`,
-                            translateX: `${particle.x}px`,
-                            translateY: `${particle.y}px`,
-                            width: `${particle.size}px`,
-                            height: `${particle.size}px`,
-                        }}
-                        animate={{
-                            opacity: [0.5, 1, 0.5],
-                            scale: [1, 1.5, 1]
-                        }}
-                        transition={{
-                            duration: particle.duration,
-                            repeat: Infinity,
-                            delay: particle.delay,
-                            ease: "easeInOut"
-                        }}
-                    />
-                ))}
-
-                <div className="relative w-full max-w-4xl h-screen">
-                    {/* Vignette effect */}
-                    <div className="absolute inset-0 bg-gradient-radial from-transparent via-transparent to-slate-900 pointer-events-none" />
-
-                    {/* Light Bulb */}
-                    <motion.div
-                        className="absolute -top-32 flex flex-col items-center"
-                        initial={{ x: -600 }}
-                        animate={{ x: 0 }}
-                        transition={{
-                            duration: 2.5,
-                            ease: "easeOut",
-                        }}
-                        style={{
-                            left: '50%',
-                            translateX: '-50%'
-                        }}
-                    >
-                        {/* Light bulb glow */}
-                        <motion.div
-                            className="absolute w-40 h-40 bg-orange-300/30 rounded-full blur-3xl"
-                            animate={{
-                                opacity: [0.3, 0.6, 0.3],
-                                scale: [1, 1.2, 1]
-                            }}
-                            transition={{
-                                duration: 2,
-                                repeat: Infinity,
-                                ease: "easeInOut"
-                            }}
-                        />
-
-                        {/* Light bulb icon */}
-                        <motion.div
-                            initial={{ opacity: 0.3 }}
-                            animate={{ opacity: 1 }}
-                            transition={{
-                                duration: 2.5,
-                                ease: "easeOut"
-                            }}
-                        >
-                            <Lightbulb className="w-32 h-32 text-orange-300 fill-yellow-200 relative z-10" />
-                        </motion.div>
-
-                        {/* Enhanced light beam with multiple layers */}
-                        <motion.div
-                            className="absolute top-32 w-175 h-screen bg-linear-to-b from-orange-400/50 via-yellow-300/25 to-transparent"
-                            style={{
-                                clipPath: 'polygon(40% 0%, 60% 0%, 100% 100%, 0% 100%)'
-                            }}
-                            initial={{ opacity: 0 }}
-                            animate={{ opacity: 1 }}
-                            transition={{
-                                duration: 2.5,
-                                ease: "easeOut"
-                            }}
-                        />
-                    </motion.div>
-
-                    {/* Enhanced illuminated area on ground */}
-                    <motion.div
-                        className="absolute bottom-0 left-1/2 -translate-x-1/2"
-                        initial={{ opacity: 0, x: -600 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{
-                            duration: 2.5,
-                            ease: "easeOut",
-                        }}
-                    >
-                        {/* Outer glow */}
-                        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-125 h-16 bg-orange-300/20 rounded-full blur-3xl" />
-                        {/* Middle glow */}
-                        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-96 h-12 bg-orange-300/40 rounded-full blur-2xl" />
-                        {/* Inner bright spot */}
-                        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-64 h-8 bg-orange-200/50 rounded-full blur-xl" />
-                    </motion.div>
-
                     {/* Name in the middle - already visible */}
-                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10">
                         {/* Text glow */}
                         <h1
                             className="text-white text-5xl text-center tracking-wide absolute top-0 left-0 blur-md opacity-60"
@@ -240,56 +90,6 @@ export default function App() {
 
             {/* Projects Section */}
             <section id="projects" className="min-h-screen bg-slate-900 py-20 px-8 relative overflow-hidden">
-                {/* Stars background for projects section */}
-                {stars.map((star) => (
-                    <motion.div
-                        key={`project-star-${star.id}`}
-                        className="absolute rounded-full bg-white"
-                        style={{
-                            left: `${star.x}%`,
-                            top: `${star.y}%`,
-                            width: `${star.size}px`,
-                            height: `${star.size}px`,
-                        }}
-                        animate={{
-                            opacity: [0.2, 1, 0.2],
-                            scale: [1, 1.5, 1]
-                        }}
-                        transition={{
-                            duration: star.duration,
-                            repeat: Infinity,
-                            delay: star.delay,
-                            ease: "easeInOut"
-                        }}
-                    />
-                ))}
-
-                {/* Floating light particles for projects section */}
-                {particles.map((particle) => (
-                    <motion.div
-                        key={`project-particle-${particle.id}`}
-                        className="absolute rounded-full bg-yellow-300"
-                        style={{
-                            left: `50%`,
-                            top: `50%`,
-                            translateX: `${particle.x}px`,
-                            translateY: `${particle.y}px`,
-                            width: `${particle.size}px`,
-                            height: `${particle.size}px`,
-                        }}
-                        animate={{
-                            opacity: [0.5, 1, 0.5],
-                            scale: [1, 1.5, 1]
-                        }}
-                        transition={{
-                            duration: particle.duration,
-                            repeat: Infinity,
-                            delay: particle.delay,
-                            ease: "easeInOut"
-                        }}
-                    />
-                ))}
-
                 <div className="max-w-6xl mx-auto relative z-10">
                     <motion.h2
                         className="text-4xl font-bold text-white text-center mb-16"
@@ -541,60 +341,6 @@ export default function App() {
 
             {/* Contact Section */}
             < section id="contact" className="min-h-screen bg-slate-900 py-20 px-8 relative overflow-hidden" >
-                {/* Stars background for contact section */}
-                {
-                    stars.map((star) => (
-                        <motion.div
-                            key={`contact-star-${star.id}`}
-                            className="absolute rounded-full bg-white"
-                            style={{
-                                left: `${star.x}%`,
-                                top: `${star.y}%`,
-                                width: `${star.size}px`,
-                                height: `${star.size}px`,
-                            }}
-                            animate={{
-                                opacity: [0.2, 1, 0.2],
-                                scale: [1, 1.5, 1]
-                            }}
-                            transition={{
-                                duration: star.duration,
-                                repeat: Infinity,
-                                delay: star.delay,
-                                ease: "easeInOut"
-                            }}
-                        />
-                    ))
-                }
-
-                {/* Floating light particles for contact section */}
-                {
-                    particles.map((particle) => (
-                        <motion.div
-                            key={`contact-particle-${particle.id}`}
-                            className="absolute rounded-full bg-yellow-300"
-                            style={{
-                                left: `50%`,
-                                top: `50%`,
-                                translateX: `${particle.x}px`,
-                                translateY: `${particle.y}px`,
-                                width: `${particle.size}px`,
-                                height: `${particle.size}px`,
-                            }}
-                            animate={{
-                                opacity: [0.5, 1, 0.5],
-                                scale: [1, 1.5, 1]
-                            }}
-                            transition={{
-                                duration: particle.duration,
-                                repeat: Infinity,
-                                delay: particle.delay,
-                                ease: "easeInOut"
-                            }}
-                        />
-                    ))
-                }
-
                 <div className="max-w-4xl mx-auto relative z-10 text-center">
                     <motion.h2
                         className="text-4xl font-bold text-white text-center mb-8"
