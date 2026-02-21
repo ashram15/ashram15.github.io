@@ -101,9 +101,77 @@ export default function App() {
                         Projects
                     </motion.h2>
 
-                    {/* SynopSpy Project */}
+                    {/*MindMap AI */}
                     <motion.div
                         className="bg-slate-700/50 backdrop-blur-sm rounded-xl p-8 border border-slate-600/50 hover:border-yellow-300/30 transition-colors"
+                        initial={{ opacity: 0, y: 50 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.8, delay: 0.2 }}
+                        viewport={{ once: true }}
+                    >
+                        <h3 className="text-2xl font-bold text-white mb-4">
+                            <a
+                                href="https://mindmap-frontend-production-e45e.up.railway.app"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="hover:text-yellow-300 transition-colors"
+                            >
+                                MindMap AI
+                            </a>
+                        </h3>
+
+                        <p className="text-gray-300 text-lg mb-6 leading-relaxed">
+                            MindMap AI is a AI-powered 3D knowledge graph visualization tool that transforms web data into an
+                            immersive and interactive 3D mind map. It uses a custom-built web crawler to
+                            extract structured data from websites, which is then processed and visualized
+                            as a dynamic 3D graph. Users can explore the relationships between different
+                            entities in an intuitive way, making it easier to understand complex information
+                            and discover new insights.
+                        </p>
+                        <div className="grid md:grid-cols-2 gap-8 items-start">
+                            <div>
+                                <h4 className="text-lg font-semibold text-yellow-300 mb-3">Key Features:</h4>
+                                <ul className="space-y-2 text-gray-300">
+                                    <li className="flex items-start gap-2">
+                                        <span className="text-yellow-300 mt-1">•</span>
+                                        Custom-built web crawler to extract structured data from websites, which is then processed and visualized as a dynamic 3D graph.
+                                    </li>
+                                    <li className="flex items-start gap-2">
+                                        <span className="text-yellow-300 mt-1">•</span>
+                                        Microservices architecture using a C++ vector engine for low latency data retrieval, a Python FastAPI backend for data processing from the Google Gemini3 API, and a Next.js frontend for 3D visualization with three.js.
+                                    </li>
+                                    <li className="flex items-start gap-2">
+                                        <span className="text-yellow-300 mt-1">•</span>
+                                        Interactive 3D graph visualization using three.js, allowing users to explore relationships between entities in an intuitive way.
+                                    </li>
+                                    <li className="flex items-start gap-2">
+                                        <span className="text-yellow-50 mt-1">•</span>
+                                        <div>
+                                            <strong>Why I built this?</strong> I built this project to create a tool that can help people visualize complex information in an intuitive way. I wanted to learn how to build a full stack application that integrates a powerful NLP API and provides meaningful insights from web data.
+                                        </div>
+                                    </li>
+
+                                </ul>
+                            </div>
+
+                            <div className="flex justify-center">
+                                <video
+                                    className="rounded-lg border border-slate-600 max-w-full h-auto shadow-lg"
+                                    controls
+                                    loop
+                                    muted
+                                    playsInline
+                                >
+                                    <source src="/mindmap_demo.mp4" type="video/mp4" />
+                                    Your browser does not support the video tag.
+                                </video>
+                            </div>
+                        </div>
+                    </motion.div>
+
+                    {/* SynopSpy Project */}
+                    <motion.div
+                        className="bg-slate-700/50 backdrop-blur-sm rounded-xl p-8 border border-slate-600/50 hover:border-yellow-300/30 transition-colors mt-8"
                         initial={{ opacity: 0, y: 50 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8, delay: 0.2 }}
