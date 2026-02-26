@@ -111,7 +111,7 @@ export default function App() {
                     >
                         <h3 className="text-2xl font-bold text-white mb-4">
                             <a
-                                href="https://mindmap-frontend-production-e45e.up.railway.app"
+                                href="https://mind-map-ai-frontend-sigma.vercel.app/"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="hover:text-yellow-300 transition-colors"
