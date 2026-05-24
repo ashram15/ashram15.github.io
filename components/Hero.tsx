@@ -3,7 +3,6 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'motion/react';
 import { Mail, Github, Linkedin } from 'lucide-react';
-import synopspyDemo from '@/assets/synopspy-new-demo.gif';
 import sortingVisualizerImage from '@/assets/demo-BgwH8UuU.png';
 import testTrackImage from '@/assets/TestTrack-BiYzRBBc.png';
 import HFOMDemo from '@/assets/HFOM_demo.gif';
@@ -229,7 +228,7 @@ export default function App() {
                                 <iframe
                                     className="rounded-lg border border-slate-600 shadow-lg w-full aspect-video"
                                     src="https://www.youtube.com/embed/d2JgnGQIi6E"
-                                    title="System Health Monitor Demo"
+                                    title="SynopSpy Demo"
                                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                                     allowFullScreen
                                 />
