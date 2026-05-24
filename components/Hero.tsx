@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'motion/react';
 import { Mail, Github, Linkedin } from 'lucide-react';
-import synopspyDemo from '@/assets/synopspy_demo-B5uEZ3cv.gif';
+import synopspyDemo from '@/assets/synopspy-new-demo.gif';
 import sortingVisualizerImage from '@/assets/demo-BgwH8UuU.png';
 import testTrackImage from '@/assets/TestTrack-BiYzRBBc.png';
 import HFOMDemo from '@/assets/HFOM_demo.gif';
@@ -189,13 +189,7 @@ export default function App() {
                         </h3>
 
                         <p className="text-gray-300 text-lg mb-6 leading-relaxed">
-                            SynopSpy is a full stack web application that help users
-                            understand and assess complex documents. Some examples of
-                            documents SynopSpy helps analyze are legal fine print,
-                            court documents, or terms and conditions. SynopSpy uses
-                            NLP (Natural Language Processing) to summarize and analyze
-                            these documents, flag risky language, and assign a document
-                            safety rating.
+                            SynopSpy is a full-stack web application that helps users understand and assess complex documents—legal fine print, court filings, contracts, terms and conditions, training materials, and more. It uses Google Gemini for automated summarization and risk analysis, and a RAG-powered document chatbot so signed-in users can ask grounded questions about each upload. The system flags risky language, assigns a document safety rating, and keeps answers scoped to the file being viewed.
                         </p>
 
                         <div className="grid md:grid-cols-2 gap-8 items-start">
@@ -204,24 +198,27 @@ export default function App() {
                                 <ul className="space-y-2 text-gray-300">
                                     <li className="flex items-start gap-2">
                                         <span className="text-yellow-300 mt-1">•</span>
-                                        Leverages Google's Gemini API to perform complex NLP tasks, including large document summarization and content risk analysis. Detects complex legal language and highlights sections in the document that require increased oversight.
-                                    </li>
+                                        Google Gemini powered analysis — Summaries, safety ratings (1–5), and flagged risky language on PDF/DOCX uploads                                    </li>
                                     <li className="flex items-start gap-2">
                                         <span className="text-yellow-300 mt-1">•</span>
                                         Developed a RESTful API with FastAPI, connected to a React frontend via JavaScript.
                                     </li>
                                     <li className="flex items-start gap-2">
                                         <span className="text-yellow-300 mt-1">•</span>
-                                        Integrates a secure login using Auth0 to ensure that document uploads are tied to individual users.
+                                        RAG chatbot — Per-document Q&A via custom chunking, Gemini embeddings, and Supabase (pgvector) vector search; answers use only retrieved context
                                     </li>
                                     <li className="flex items-start gap-2">
                                         <span className="text-yellow-300 mt-1">•</span>
-                                        Stores and retrieves a user's previous document analysis using MongoDB NoSQL databases, allowing for easy comparison and review.
+                                        Full stack — FastAPI + React (Vite) REST API with Auth0-secured uploads and a floating chat UI
+                                    </li>
+                                    <li className="flex items-start gap-2">
+                                        <span className="text-yellow-300 mt-1">•</span>
+                                        Data & deploy — MongoDB for history; Supabase for vectors; deployed on Render with PDF report download
                                     </li>
                                     <li className="flex items-start gap-2">
                                         <span className="text-yellow-50 mt-1">•</span>
                                         <div>
-                                            <strong>Why I built this?</strong> I built this project to create a tool that can help people navigate complex documents. I wanted to learn how to integrate a powerful NLP API into a full stack application, and to understand the challenges of handling large documents and providing meaningful insights from them.
+                                            <strong>Why I built this?</strong> I built this project to create a tool that can help people navigate complex documents and to learn full-stack NLP: summarization, RAG, vector search, and production deployment in one app.
                                         </div>
                                     </li>
 
@@ -229,10 +226,12 @@ export default function App() {
                             </div>
 
                             <div className="flex justify-center">
-                                <img
-                                    src={synopspyDemo.src}
-                                    alt="SynopSpy demo"
-                                    className="rounded-lg border border-slate-600 max-w-full h-auto shadow-lg"
+                                <iframe
+                                    className="rounded-lg border border-slate-600 shadow-lg w-full aspect-video"
+                                    src="https://www.youtube.com/embed/d2JgnGQIi6E"
+                                    title="System Health Monitor Demo"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                    allowFullScreen
                                 />
                             </div>
                         </div>
