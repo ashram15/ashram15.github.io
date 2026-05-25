@@ -160,8 +160,10 @@ export default function App() {
                                     loop
                                     muted
                                     playsInline
+                                    controlsList="nodownload nofullscreen noremoteplayback"
+                                    disablePictureInPicture
                                 >
-                                    <source src="/mindmap_demo.mp4" type="video/mp4" />
+                                    <source src="/mindmap_demovid.mp4" type="video/mp4" />
                                     Your browser does not support the video tag.
                                 </video>
                             </div>
@@ -227,7 +229,7 @@ export default function App() {
                             <div className="flex justify-center">
                                 <iframe
                                     className="rounded-lg border border-slate-600 shadow-lg w-full aspect-video"
-                                    src="https://www.youtube.com/embed/d2JgnGQIi6E"
+                                    src="https://www.youtube.com/embed/d2JgnGQIi6E?mute=1&controls=1&modestbranding=1&rel=0"
                                     title="SynopSpy Demo"
                                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                                     allowFullScreen
