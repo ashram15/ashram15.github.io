@@ -154,18 +154,13 @@ export default function App() {
                             </div>
 
                             <div className="flex justify-center">
-                                <video
-                                    className="rounded-lg border border-slate-600 max-w-full h-auto shadow-lg"
-                                    controls
-                                    loop
-                                    muted
-                                    playsInline
-                                    controlsList="nodownload nofullscreen noremoteplayback"
-                                    disablePictureInPicture
-                                >
-                                    <source src="/mindmap_demovid.mp4" type="video/mp4" />
-                                    Your browser does not support the video tag.
-                                </video>
+                                <iframe
+                                    className="rounded-lg border border-slate-600 shadow-lg w-full aspect-video"
+                                    src="https://www.youtube.com/embed/zoXxT90jwls"
+                                    title="MindMap Demo"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                    allowFullScreen
+                                />
                             </div>
                         </div>
                     </motion.div>
