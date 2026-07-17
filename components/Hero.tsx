@@ -266,7 +266,7 @@ export default function App() {
                                 className="hover:text-yellow-300 transition-colors"
                             >
 
-                                High Frequency Order Matching Engine
+                                Limit Order Book Engine
                             </a>
 
                         </h3>
