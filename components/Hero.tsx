@@ -119,10 +119,19 @@ export default function App() {
                             </a>
                         </h3>
 
+                        <h3 className="font-bold text-white mb-4">
+                            <a
+                                href="https://github.com/ashram15/MindMapAI"
+                                className="hover:text-yellow-300 transition-colors"
+                            >
+                                GitHub Link
+                            </a>
+                        </h3>
+
                         <p className="text-gray-300 text-lg mb-6 leading-relaxed">
                             MindMap AI is a AI-powered 3D knowledge graph visualization tool that transforms web data into an
                             immersive and interactive 3D mind map. It uses a custom-built web crawler to
-                            extract structured data from websites, which is then processed and visualized
+                            extract structured data from wikipedia data and research websites, which is then processed and visualized
                             as a dynamic 3D graph. Users can explore the relationships between different
                             entities in an intuitive way, making it easier to understand complex information
                             and discover new insights.
@@ -184,6 +193,15 @@ export default function App() {
                             </a>
                         </h3>
 
+                        <h3 className="font-bold text-white mb-4">
+                            <a
+                                href="https://github.com/ashram15/synopspy"
+                                className="hover:text-yellow-300 transition-colors"
+                            >
+                                GitHub Link
+                            </a>
+                        </h3>
+
                         <p className="text-gray-300 text-lg mb-6 leading-relaxed">
                             SynopSpy is a full-stack web application that helps users understand and assess complex documents—legal fine print, court filings, contracts, terms and conditions, training materials, and more. It uses Google Gemini for automated summarization and risk analysis, and a RAG-powered document chatbot so signed-in users can ask grounded questions about each upload. The system flags risky language, assigns a document safety rating, and keeps answers scoped to the file being viewed.
                         </p>
@@ -233,6 +251,80 @@ export default function App() {
                         </div>
                     </motion.div>
 
+                    {/* High Frequency Order Matching Project */}
+                    <motion.div
+                        className="bg-slate-700/50 backdrop-blur-sm rounded-xl p-8 border border-slate-600/50 hover:border-yellow-300/30 transition-colors mt-8"
+                        initial={{ opacity: 0, y: 50 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.8, delay: 0.6 }}
+                        viewport={{ once: true }}
+                    >
+                        <h3 className="text-2xl font-bold text-white mb-4">
+                            <a href="https://github.com/ashram15/limit-order-book-engine"
+                                target="blank"
+                                rel="noopener noreferrer"
+                                className="hover:text-yellow-300 transition-colors"
+                            >
+
+                                High Frequency Order Matching Engine
+                            </a>
+
+                        </h3>
+
+                        <h3 className="font-bold text-white mb-4">
+                            <a
+                                href="https://github.com/ashram15/limit-order-book-engine"
+                                className="hover:text-yellow-300 transition-colors"
+                            >
+                                GitHub Link
+                            </a>
+                        </h3>
+
+                        <p className="text-gray-300 text-lg mb-6 leading-relaxed">
+                            This engine was built as a low-latency Limit Order Book in C++. It simulates a stock exchange matching engine
+                            using Price-Time Priority logic to match Buy and Sell orders efficiently.
+                        </p>
+
+                        <div className="grid md:grid-cols-2 gap-8 items-start">
+                            <div>
+                                <h4 className="text-lg font-semibold text-yellow-300 mb-3">Key Features:</h4>
+                                <ul className="space-y-2 text-gray-300">
+                                    <li className="flex items-start gap-2">
+                                        <span className="text-yellow-300 mt-1">•</span>
+                                        Uses Red-Black Trees (std::map) to maintain sorted order of buy and sell orders (automatically sorted in O(log n) time). This allows for O(1) time complexity for retrieving the best bid and ask prices, which is crucial for high-frequency trading.
+                                    </li>
+
+                                    <li className="flex items-start gap-2">
+                                        <span className="text-yellow-300 mt-1">•</span>
+                                        Implements Price-Time Priority for order matching. Orders are matched based on price first (best price gets priority), and if prices are the same, then the order that arrived first gets priority. Lowest asking price is matched with the highest bid price. This is a standard practice in financial markets to ensure fairness and efficiency.
+                                    </li>
+
+                                    <li className="flex items-start gap-2">
+                                        <span className="text-yellow-300 mt-1">•</span>
+                                        Uses a TCP socket server as the Network Interface to receive incoming orders. TCP is chosen because it is faster for raw order data.
+                                    </li>
+
+                                    <li className="flex items-start gap-2">
+                                        <span className="text-yellow-50 mt-1">•</span>
+                                        <div>
+                                            <strong>Why I built this?</strong> I wanted to understand the mechanics of a high frequency market. I chose C++ for its performance benefits and
+                                            because I needed deterministic memory management (no Garbage Collector pauses) to handle high-frequency data.
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div className="flex justify-center">
+                                <img
+                                    src={HFOMDemo.src}
+                                    alt="High Frequency Order Matching Engine demo"
+                                    className="rounded-lg border border-slate-600 max-w-full h-auto shadow-lg"
+                                />
+                            </div>
+                        </div>
+                    </motion.div>
+
+
                     {/* System Monitor Sensor Project */}
                     <motion.div
                         className="bg-slate-700/50 backdrop-blur-sm rounded-xl p-8 border border-slate-600/50 hover:border-yellow-300/30 transition-colors mt-8"
@@ -249,6 +341,15 @@ export default function App() {
                                 className="hover:text-yellow-300 transition-colors"
                             >
                                 System Health Monitor
+                            </a>
+                        </h3>
+
+                        <h3 className="font-bold text-white mb-4">
+                            <a
+                                href="https://github.com/ashram15/system_health_monitor"
+                                className="hover:text-yellow-300 transition-colors"
+                            >
+                                GitHub Link
                             </a>
                         </h3>
 
@@ -298,69 +399,6 @@ export default function App() {
                         </div>
                     </motion.div>
 
-                    {/* High Frequency Order Matching Project */}
-                    <motion.div
-                        className="bg-slate-700/50 backdrop-blur-sm rounded-xl p-8 border border-slate-600/50 hover:border-yellow-300/30 transition-colors mt-8"
-                        initial={{ opacity: 0, y: 50 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.8, delay: 0.6 }}
-                        viewport={{ once: true }}
-                    >
-                        <h3 className="text-2xl font-bold text-white mb-4">
-                            <a href="https://github.com/ashram15/high_frequency_order_matching"
-                                target="blank"
-                                rel="noopener noreferrer"
-                                className="hover:text-yellow-300 transition-colors"
-                            >
-
-                                High Frequency Order Matching Engine
-                            </a>
-
-                        </h3>
-
-                        <p className="text-gray-300 text-lg mb-6 leading-relaxed">
-                            This engine was built as a low-latency Limit Order Book in C++. It simulates a stock exchange matching engine
-                            using Price-Time Priority logic to match Buy and Sell orders efficiently.
-                        </p>
-
-                        <div className="grid md:grid-cols-2 gap-8 items-start">
-                            <div>
-                                <h4 className="text-lg font-semibold text-yellow-300 mb-3">Key Features:</h4>
-                                <ul className="space-y-2 text-gray-300">
-                                    <li className="flex items-start gap-2">
-                                        <span className="text-yellow-300 mt-1">•</span>
-                                        Uses Red-Black Trees (std::map) to maintain sorted order of buy and sell orders (automatically sorted in O(log n) time). This allows for O(1) time complexity for retrieving the best bid and ask prices, which is crucial for high-frequency trading.
-                                    </li>
-
-                                    <li className="flex items-start gap-2">
-                                        <span className="text-yellow-300 mt-1">•</span>
-                                        Implements Price-Time Priority for order matching. Orders are matched based on price first (best price gets priority), and if prices are the same, then the order that arrived first gets priority. Lowest asking price is matched with the highest bid price. This is a standard practice in financial markets to ensure fairness and efficiency.
-                                    </li>
-
-                                    <li className="flex items-start gap-2">
-                                        <span className="text-yellow-300 mt-1">•</span>
-                                        Uses a TCP socket server as the Network Interface to receive incoming orders. TCP is chosen because it is faster for raw order data.
-                                    </li>
-
-                                    <li className="flex items-start gap-2">
-                                        <span className="text-yellow-50 mt-1">•</span>
-                                        <div>
-                                            <strong>Why I built this?</strong> I wanted to understand the mechanics of a high frequency market. I chose C++ for its performance benefits and
-                                            because I needed deterministic memory management (no Garbage Collector pauses) to handle high-frequency data.
-                                        </div>
-                                    </li>
-                                </ul>
-                            </div>
-
-                            <div className="flex justify-center">
-                                <img
-                                    src={HFOMDemo.src}
-                                    alt="High Frequency Order Matching Engine demo"
-                                    className="rounded-lg border border-slate-600 max-w-full h-auto shadow-lg"
-                                />
-                            </div>
-                        </div>
-                    </motion.div>
 
                     {/* Sorting Algorithm Visualizer Project */}
                     <motion.div
@@ -375,6 +413,15 @@ export default function App() {
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="hover:text-yellow-300 transition-colors">Sorting Algorithm Visualizer</a>
+                        </h3>
+
+                        <h3 className="font-bold text-white mb-4">
+                            <a
+                                href="https://github.com/ashram15/system_health_monitor"
+                                className="hover:text-yellow-300 transition-colors"
+                            >
+                                GitHub Link
+                            </a>
                         </h3>
 
                         <p className="text-gray-300 text-lg mb-6 leading-relaxed">
