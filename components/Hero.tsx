@@ -630,7 +630,7 @@ export default function App() {
                     >
                         {/* Email */}
                         <a
-                            href="mailto:ashram1015@gmail.com"
+                            href="mailto:aishwarya.ramesh.cs@gmail.com"
                             className="group flex flex-col items-center gap-3 p-6 bg-slate-700/50 backdrop-blur-sm rounded-xl border border-slate-600/50 hover:border-yellow-300/30 transition-all duration-300 hover:scale-105"
                         >
                             <div className="p-4 bg-slate-600 rounded-full group-hover:bg-yellow-300 transition-colors duration-300">
