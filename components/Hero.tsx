@@ -9,6 +9,41 @@ import HFOMDemo from '@/assets/HFOM_demo.gif';
 import LightPillar from './LightPillar';
 
 export default function App() {
+    const certifications = [
+        {
+            title: 'AWS Certified Cloud Practitioner',
+            issuer: 'Amazon Web Services',
+            detail: 'Foundational cloud certification covering AWS core services, security, and shared responsibility.',
+            link: 'https://www.credly.com/badges/9dc3a327-b600-4b00-8ff1-d084a14e94b8/linked_in_profile'
+        },
+        {
+            title: 'Machine Learning Foundations',
+            issuer: 'Cornell University',
+            detail: 'Machine learning certificate covering building intelligent application using LLMs, RAG systems, and neural networks.',
+            link: "https://mycredentials.ecornell.cornell.edu/credential/tvBwFRgtuB"
+        },
+        {
+            title: 'Intermediate Technical Interview Prep',
+            issuer: 'Code Path',
+            detail: 'Covered advanced technical interview prep covering Graphs, 1D and 2D Dynamic Programming, and Backtracking.',
+            link: "https://drive.google.com/file/d/1Ps0z6iFapfo-tD6pxusxd-i7fTgCcZim/view"
+        }
+    ];
+
+    const experience = [
+        {
+            role: 'AI/ML Fellow',
+            org: 'Break Through Tech',
+            detail: 'Selected for a competitive national AI/ML fellowship through Break Through Tech and Cornell Tech focused on building real world Machine Learning projects for a Fortune 500 company involving NumPy, scikit-learn, pandas, and other Python libraries.'
+        },
+        {
+            role: 'Undergraduate Researcher',
+            org: 'UT Dallas',
+            detail: 'Refined 2 of 8 AI-generated technical figures (GPU kernel architecture, model-interaction pipeline) for a systematic review paper, correcting inaccuracies against source material using PowerPoint.'
+        }
+
+    ];
+
     return (
         <div className="min-h-screen bg-slate-900 relative">
             {/* Header */}
@@ -129,12 +164,11 @@ export default function App() {
                         </h3>
 
                         <p className="text-gray-300 text-lg mb-6 leading-relaxed">
-                            MindMap AI is a AI-powered 3D knowledge graph visualization tool that transforms web data into an
-                            immersive and interactive 3D mind map. It uses a custom-built web crawler to
-                            extract structured data from wikipedia data and research websites, which is then processed and visualized
-                            as a dynamic 3D graph. Users can explore the relationships between different
-                            entities in an intuitive way, making it easier to understand complex information
-                            and discover new insights.
+                            MindMap AI is an AI-powered 3D knowledge graph visualization system that transforms Wikipedia data into
+                            an immersive, interactive learning experience. It combines high-performance vector search,
+                            AI research agents, and 3D visualization to help users explore how ideas connect in one place.
+                            The result is a more intuitive way to move through related topics without jumping between
+                            dozens of tabs.
                         </p>
                         <div className="grid md:grid-cols-2 gap-8 items-start">
                             <div>
@@ -142,20 +176,25 @@ export default function App() {
                                 <ul className="space-y-2 text-gray-300">
                                     <li className="flex items-start gap-2">
                                         <span className="text-yellow-300 mt-1">•</span>
-                                        Custom-built web crawler to extract structured data from websites, which is then processed and visualized as a dynamic 3D graph.
+                                        3D knowledge graph visualization for exploring Wikipedia data through connected concepts and relationships.
                                     </li>
                                     <li className="flex items-start gap-2">
                                         <span className="text-yellow-300 mt-1">•</span>
-                                        Microservices architecture using a C++ vector engine for low latency data retrieval, a Python FastAPI backend for data processing from the Google Gemini3 API, and a Next.js frontend for 3D visualization with three.js.
+                                        Microservices architecture with a C++ vector engine, a Python AI backend, and a Next.js frontend.
                                     </li>
                                     <li className="flex items-start gap-2">
                                         <span className="text-yellow-300 mt-1">•</span>
-                                        Interactive 3D graph visualization using three.js, allowing users to explore relationships between entities in an intuitive way.
+                                        High-performance vector search and AI research agents to surface relevant connections and context.
+                                    </li>
+                                    <li className="flex items-start gap-2">
+                                        <span className="text-yellow-300 mt-1">•</span>
+                                        Uses Google Gemini API as a fallback that generates related concepts and research nodes when the local vector search does not have enough confidence, keeping exploration useful for niche topics.
                                     </li>
                                     <li className="flex items-start gap-2">
                                         <span className="text-yellow-50 mt-1">•</span>
                                         <div>
-                                            <strong>Why I built this?</strong> I built this project to create a tool that can help people visualize complex information in an intuitive way. I wanted to learn how to build a full stack application that integrates a powerful NLP API and provides meaningful insights from web data.
+                                            <strong>Why I built this?</strong> I built this project to make complex information easier to explore and to
+                                            create a more intuitive learning experience for deep research sessions.
                                         </div>
                                     </li>
 
@@ -467,8 +506,99 @@ export default function App() {
                 </div>
             </section >
 
+            {/* Certification/Experience Section */}
+            <section id="experience" className="min-h-screen bg-slate-950 py-20 px-8 relative overflow-hidden">
+                <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(82,39,255,0.16),transparent_40%),radial-gradient(circle_at_bottom_right,rgba(253,224,71,0.08),transparent_35%)]" />
+                <div className="max-w-6xl mx-auto relative z-10">
+                    <motion.div
+                        className="text-center max-w-3xl mx-auto mb-16"
+                        initial={{ opacity: 0, y: 40 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.8 }}
+                        viewport={{ once: true }}
+                    >
+                        <span className="inline-flex items-center rounded-full border border-yellow-300/30 bg-yellow-300/10 px-4 py-1 text-sm text-yellow-300 tracking-[0.2em] uppercase">
+                            Certifications / Experience
+                        </span>
+                        <h2 className="text-4xl md:text-5xl font-bold text-white mt-6 mb-4">
+                            What I’ve earned and where I’ve worked
+                        </h2>
+                    </motion.div>
+
+                    <div className="grid lg:grid-cols-2 gap-8 items-start">
+                        <motion.div
+                            className="bg-slate-800/55 backdrop-blur-sm rounded-2xl border border-slate-600/50 p-8 shadow-2xl shadow-black/20"
+                            initial={{ opacity: 0, x: -30 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            transition={{ duration: 0.8, delay: 0.1 }}
+                            viewport={{ once: true }}
+                        >
+                            <h3 className="text-2xl font-bold text-white mb-3">Certifications</h3>
+
+                            <div className="space-y-4">
+                                {certifications.map((item) => (
+                                    <div
+                                        key={item.title + item.issuer}
+                                        className="rounded-xl border border-slate-600/60 bg-slate-900/60 p-5 hover:border-yellow-300/30 transition-colors"
+                                    >
+                                        <div className="flex items-start justify-between gap-4">
+                                            <div>
+                                                <h4 className="text-lg font-semibold text-white">{item.title}</h4>
+                                                <p className="text-yellow-300 text-sm mt-1">{item.issuer}</p>
+                                            </div>
+                                            {item.link ? (
+                                                <a
+                                                    href={item.link}
+                                                    target="_blank"
+                                                    rel="noopener noreferrer"
+                                                    className="text-xs uppercase tracking-[0.2em] text-gray-400 border border-slate-600 rounded-full px-3 py-1 hover:text-yellow-300 hover:border-yellow-300/40 transition-colors"
+                                                >
+                                                    View
+                                                </a>
+                                            ) : null}
+                                        </div>
+                                        <p className="text-gray-300 mt-4 leading-relaxed">{item.detail}</p>
+                                    </div>
+                                ))}
+                            </div>
+                        </motion.div>
+
+                        <motion.div
+                            className="bg-slate-800/55 backdrop-blur-sm rounded-2xl border border-slate-600/50 p-8 shadow-2xl shadow-black/20"
+                            initial={{ opacity: 0, x: 30 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            transition={{ duration: 0.8, delay: 0.2 }}
+                            viewport={{ once: true }}
+                        >
+                            <h3 className="text-2xl font-bold text-white mb-3">Experience</h3>
+
+                            <div className="space-y-4">
+                                {experience.map((item, index) => (
+                                    <div
+                                        key={item.role + item.org}
+                                        className="relative rounded-xl border border-slate-600/60 bg-slate-900/60 p-5 hover:border-yellow-300/30 transition-colors"
+                                    >
+                                        <div className="absolute left-0 top-5 h-[calc(100%-2.5rem)] w-px bg-linear-to-b from-yellow-300/50 to-transparent" />
+                                        <div className="pl-4">
+                                            <div className="flex flex-wrap items-center gap-3">
+                                                <h4 className="text-lg font-semibold text-white">{item.role}</h4>
+                                            </div>
+                                            <p className="text-yellow-300 text-sm mt-1">{item.org}</p>
+                                            <p className="text-gray-300 mt-4 leading-relaxed">{item.detail}</p>
+                                            {index === experience.length - 1 ? null : <div className="mt-5 border-t border-slate-700/80" />}
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
+                        </motion.div>
+                    </div>
+                </div>
+            </section>
+
+
+
             {/* Contact Section */}
-            < section id="contact" className="min-h-screen bg-slate-900 py-20 px-8 relative overflow-hidden" >
+            <section id="contact" className="min-h-screen bg-slate-900 py-20 px-8 relative overflow-hidden">
                 <div className="max-w-4xl mx-auto relative z-10 text-center">
                     <motion.h2
                         className="text-4xl font-bold text-white text-center mb-8"
@@ -536,7 +666,7 @@ export default function App() {
                         </a>
                     </motion.div>
                 </div>
-            </section >
-        </div >
+            </section>
+        </div>
     );
 }
