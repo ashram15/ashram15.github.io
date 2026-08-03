@@ -439,7 +439,7 @@ export default function App() {
                     </motion.div>
 
 
-                    {/* Sorting Algorithm Visualizer Project */}
+                    {/* Sorting Algorithm Visualizer Project
                     <motion.div
                         className="bg-slate-700/50 backdrop-blur-sm rounded-xl p-8 border border-slate-600/50 hover:border-yellow-300/30 transition-colors mt-8"
                         initial={{ opacity: 0, y: 50 }}
@@ -502,7 +502,7 @@ export default function App() {
                                 />
                             </div>
                         </div>
-                    </motion.div>
+                    </motion.div> */}
                 </div>
             </section >
 
@@ -617,7 +617,7 @@ export default function App() {
                         transition={{ duration: 0.8, delay: 0.2 }}
                         viewport={{ once: true }}
                     >
-                        I'm currently open to internship opportunities for Summer 2026! Feel free to reach out to me via email or connect with me on LinkedIn and GitHub.
+                        I'm currently open to internship opportunities for Fall 2026, Winter 2027, and Summer 2027! Feel free to reach out to me via email or connect with me on LinkedIn and GitHub.
 
                     </motion.p>
 
@@ -641,7 +641,7 @@ export default function App() {
 
                         {/* LinkedIn */}
                         <a
-                            href="https://linkedin.com/in/aishwarya-rame"
+                            href="https://www.linkedin.com/in/aishwarya-ramesh1/"
                             target="_blank"
                             rel="noopener noreferrer"
                             className="group flex flex-col items-center gap-3 p-6 bg-slate-700/50 backdrop-blur-sm rounded-xl border border-slate-600/50 hover:border-yellow-300/30 transition-all duration-300 hover:scale-105"
