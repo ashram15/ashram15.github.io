@@ -5,7 +5,7 @@ import { motion } from 'motion/react';
 import { Mail, Github, Linkedin } from 'lucide-react';
 import sortingVisualizerImage from '@/assets/demo-BgwH8UuU.png';
 import testTrackImage from '@/assets/TestTrack-BiYzRBBc.png';
-import HFOMDemo from '@/assets/HFOM_demo.gif';
+import liveModeGif from '@/assets/LIVE_MODE.gif';
 import LightPillar from './LightPillar';
 
 export default function App() {
@@ -299,7 +299,7 @@ export default function App() {
                         viewport={{ once: true }}
                     >
                         <h3 className="text-2xl font-bold text-white mb-4">
-                            <a href="https://github.com/ashram15/limit-order-book-engine"
+                            <a href="http://3.209.97.112:8000"
                                 target="blank"
                                 rel="noopener noreferrer"
                                 className="hover:text-yellow-300 transition-colors"
@@ -355,7 +355,7 @@ export default function App() {
 
                             <div className="flex justify-center">
                                 <img
-                                    src={HFOMDemo.src}
+                                    src={liveModeGif.src}
                                     alt="High Frequency Order Matching Engine demo"
                                     className="rounded-lg border border-slate-600 max-w-full h-auto shadow-lg"
                                 />
