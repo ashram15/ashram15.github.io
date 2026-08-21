@@ -5,7 +5,6 @@ import { motion } from 'motion/react';
 import { Mail, Github, Linkedin } from 'lucide-react';
 import sortingVisualizerImage from '@/assets/demo-BgwH8UuU.png';
 import testTrackImage from '@/assets/TestTrack-BiYzRBBc.png';
-import liveModeGif from '@/assets/LIVE_MODE.gif';
 import LightPillar from './LightPillar';
 
 export default function App() {
@@ -355,7 +354,7 @@ export default function App() {
 
                             <div className="flex justify-center">
                                 <img
-                                    src={liveModeGif.src}
+                                    src="/LIVE_MODE.gif"
                                     alt="High Frequency Order Matching Engine demo"
                                     className="rounded-lg border border-slate-600 max-w-full h-auto shadow-lg"
                                 />
