@@ -22,10 +22,10 @@ export default function App() {
             link: "https://mycredentials.ecornell.cornell.edu/credential/tvBwFRgtuB"
         },
         {
-            title: 'Intermediate Technical Interview Prep',
+            title: 'Advanced Technical Interview Prep',
             issuer: 'Code Path',
             detail: 'Covered advanced technical interview prep covering Graphs, 1D and 2D Dynamic Programming, and Backtracking.',
-            link: "https://drive.google.com/file/d/1Ps0z6iFapfo-tD6pxusxd-i7fTgCcZim/view"
+            link: "https://certificates.codepath.org/a50d0a4d-243e-4405-a0b5-4bf3195f2bce.pdf"
         }
     ];
 
